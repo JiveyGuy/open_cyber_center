@@ -21,59 +21,59 @@
 <template>
 
 
-    <div class="flex flex-col h-screen w-64 items-center justify-center bg-gray-900 relative text-Foreground rounded-br-xl text-lg">   
+    <div class="flex flex-col mr-4 mt-2 h-screen justify-start bg-gray-900 relative text-Foreground rounded-br-xl rounded-t-xl text-lg">   
       <div>
 
-      <div class="mx-auto items-center h-[155px] w-[155px] ">
+      <div class="mx-auto my-1 h-[128px] w-[128px] ">
         <div>
           <img src='../assets/Square310x310Logo.png' />
         </div>
         
       </div>
 
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center mx-auto my-auto ">
           <div>
             <ProfileView/>
           </div>
 
-          <div class="flex flex-row my-6 items-center cursor-pointer">
+          <div class="mx-auto my-auto flex flex-row items-center cursor-pointer">
             <HomeOutline fillColor="#f8f8f2" :size="20" />
-            <div class="mx-6 items-center">
+            <div class="mx-1 my-3 items-center">
               HOME
             </div>
           </div>  
           
-          <div class="flex flex-row my-6 items-center text-Red cursor-pointer">
+          <div class="mx-auto my-auto flex flex-row items-center text-Red cursor-pointer">
             <VideoBox fillColor="#ff5555" :size="20" />
-            <div class="mx-6 items-center">
+            <div class="mx-1 my-3 items-center">
               LIVE
             </div>
           </div>  
 
-          <div class="flex flex-row my-6 items-center cursor-pointer">
+          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
             <AccountGroup fillColor="#f8f8f2" :size="20" />
-            <div class="mx-6 items-center text-sm">
+            <div class="mx-1 my-3 items-center text-sm">
               PLAY2GETHER
             </div>
           </div>  
 
-          <div class="flex flex-row my-6 items-center cursor-pointer">
+          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
             <AccountCash fillColor="#f8f8f2" :size="20" />
-            <div class="mx-6 items-center">
+            <div class="mx-1 my-3 items-center">
               FUNDS
             </div>
           </div>  
 
-          <div class="flex flex-row my-6 items-center cursor-pointer">
+          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
             <AccountCog fillColor="#f8f8f2" :size="20"/>
-            <div class="mx-6 items-center">
+            <div class="mx-1 my-3 items-center">
               ACCOUNT
             </div>
           </div>  
 
-          <div class=" flex flex-row my-6 items-center text-Yellow cursor-pointer">
+          <div class=" flex flex-row mx-auto my-auto items-center text-Yellow cursor-pointer">
             <ExitToApp fillColor="#f1fa8c" :size="20" />
-            <div class="mx-6 items-center">
+            <div class="mx-1 my-3 items-center">
               EXIT
             </div>
           </div> 

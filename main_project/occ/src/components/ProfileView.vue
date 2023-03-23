@@ -13,7 +13,7 @@
 
 <template>
   <div class="p-4">
-  <div class="bg-gray-900 rounded-lg overflow-hidden border-4 border-Green">
+  <div class="bg-gray-900 rounded-lg overflow-hidden border border-Green">
     <div class="relative">
       <img class="w-full h-43 object-cover" :src="img" alt="User's profile picture">
       <div class="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-gray-900 to-transparent">
