@@ -27,22 +27,27 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.ccc.dev",
       "targets": "all"
     },
     "security": {
-      "csp": null
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'  img-src: 'self'"
     },
     "updater": {
       "active": false
     },
     "windows": [
       {
-        "fullscreen": false,
-        "resizable": true,
-        "title": "occ",
-        "width": 800,
-        "height": 600
+        "fullscreen": true,
+        "resizable": false,
+        "title": "occ"
+      },
+      {
+        "fullscreen": true,
+        "resizable": false,
+        "decorations": false,
+        "url": "https://smashthewalls.com/",
+        "label": "splashscreen"
       }
     ]
   }

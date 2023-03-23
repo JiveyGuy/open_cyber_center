@@ -4,12 +4,27 @@
   // import Greet from "./components/Greet.vue";
 
   // 
+  import SearchBar from "./components/SearchBar.vue";
   import TopBar from "./components/TopBar.vue";
+  import Stats from "./components/Stats.vue";
+
+  
 
 </script>
 
 <template>
-  <TopBar/>
+  <div class="fixed w-full h-screen bg-Background">
+    <div class="grid grid-cols-12 gap-0">
+      <div class="">
+        <TopBar/>
+      </div>
+      <div class="items-center col-start-3 col-end-7 my-4">
+        <Stats/>
+      </div>
 
-      <!-- <Greet /> -->
+      <div class="items-center col-start-10 col-end-12 my-4">
+        <SearchBar/>
+      </div>  
+    </div>
+  </div>
 </template>
