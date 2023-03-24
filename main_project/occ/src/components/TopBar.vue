@@ -21,7 +21,7 @@
 <template>
 
 
-    <div class="flex flex-col mr-4 mt-2 h-screen justify-start bg-gray-900 relative text-Foreground rounded-br-xl rounded-t-xl text-lg">   
+    <div class="flex flex-col h-screen justify-start bg-gray-900 relative text-Foreground rounded-br-xl rounded-t-xl text-lg">   
       <div>
 
       <div class="mx-auto my-1 h-[128px] w-[128px] ">
@@ -67,17 +67,16 @@
           <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
             <AccountCog fillColor="#f8f8f2" :size="20"/>
             <div class="mx-1 my-3 items-center">
-              ACCOUNT
+              TIER LIST
             </div>
           </div>  
 
-          <div class=" flex flex-row mx-auto my-auto items-center text-Yellow cursor-pointer">
-            <ExitToApp fillColor="#f1fa8c" :size="20" />
-            <div class="mx-1 my-3 items-center">
-              EXIT
-            </div>
-          </div> 
-
+          <div class=" flex flex-row mx-auto my-auto items-center cursor-pointer text-Yellow hover:shadow-Yellow hover:drop-shadow-lg">
+              <ExitToApp fillColor="#f1fa8c" :size="20" />
+              <div class="mx-1 my-3 items-center">
+                <div class="hover:shadow-Green ">GG's</div>
+              </div>
+          </div>
         </div>
       </div>
     </div>

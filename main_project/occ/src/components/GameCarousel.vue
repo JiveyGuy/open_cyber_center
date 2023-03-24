@@ -1,82 +1,62 @@
-<script lang="ts">
-
-  import { ref } from "vue";
-  import { invoke } from "@tauri-apps/api/tauri";
-
-  import { defineComponent } from "vue";
-  import { Swiper, SwiperSlide } from "swiper/vue";
-  import "swiper/swiper.scss";
-  import "swiper/components/pagination/pagination.min.css";
-  import "swiper/components/navigation/navigation.min.css";
-  import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-  
-  SwiperCore.use([Autoplay, Pagination, Navigation]);
-  
-  export default defineComponent({
-    name: "HelloWorld",
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    methods: {
-      onSwiper(swiper: any) {
-        console.log(swiper);
-      },
-      onSlideChange() {
-        console.log("slide change");
-      },
-    },
-  });
-</script>
-
-
-  
-
 <template>
-  <swiper
-    :spaceBetween="30"
-    :centeredSlides="true"
-    :autoplay="{
-      delay: 2500,
-      disableOnInteraction: false,
-    }"
-    :pagination="{
-      clickable: true,
-    }"
-    :navigation="true"
-  >
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide>
-    <swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide>
-    <swiper-slide>Slide 7</swiper-slide>
-    <swiper-slide>Slide 8</swiper-slide>
-    <swiper-slide>Slide 9</swiper-slide>
-  </swiper>
+  <div class="flex p-5 bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+    <div class = "items-center my-0 mx-4" style="position: relative; height: 200px;  ;">
+      <div
+        class="carousel-track absolute top-0 left-0 w-full h-full flex"
+        ref="carouselTrack"
+        @mousedown="handleMouseDown"
+        @mousemove="handleMouseMove"
+        @mouseup="handleMouseUp"
+      >
+        <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
+          <img src="..\assets\MWII-poster.jpg" alt="Poster 1" class="rounded-3xl " />
+        </div>
+        
+        <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
+          <img src="..\assets\MWII-poster.jpg" alt="Poster 2" class="rounded-3xl " />
+        </div>
+
+        <div class="carousel-item flex-none w-40 h-40 rounded-3xl px-2 shadow-sm">
+          <img src="..\assets\MWII-poster.jpg" alt="Poster 3" class="rounded-3xl" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-</style>
+<script lang="ts">
+  import { ref } from 'vue';
+
+  export default {
+    setup() {
+      const carouselTrack = ref<HTMLElement | null>(null);
+      let startX: number | null = null;
+      let currentTranslate = 0;
+    
+      function handleMouseDown(event: MouseEvent) {
+        startX = event.clientX;
+        carouselTrack.value?.classList.add('grabbing');
+      }
+    
+      function handleMouseMove(event: MouseEvent) {
+        if (startX === null) return;
+        const distance = event.clientX - startX;
+        currentTranslate = distance;
+        carouselTrack.value!.style.transform = `translateX(${distance}px)`;
+      }
+    
+      function handleMouseUp() {
+        startX = null;
+        carouselTrack.value?.classList.remove('grabbing');
+        carouselTrack.value!.style.transform = '';
+      }
+    
+      return {
+        carouselTrack,
+        handleMouseDown,
+        handleMouseMove,
+        handleMouseUp,
+      };
+    },
+  };
+</script>
