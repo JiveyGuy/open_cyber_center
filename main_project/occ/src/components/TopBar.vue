@@ -11,7 +11,7 @@
   import VideoBox from 'vue-material-design-icons/VideoBox.vue';
   import AccountGroup from 'vue-material-design-icons/AccountGroup.vue';
   import AccountCash from 'vue-material-design-icons/AccountCash.vue';
-  import AccountCog from 'vue-material-design-icons/AccountCog.vue';
+  import ListBox from 'vue-material-design-icons/ListBox.vue';
   import ExitToApp from 'vue-material-design-icons/ExitToApp.vue';
 
   // let name = ref("");
@@ -65,7 +65,7 @@
           </div>  
 
           <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
-            <AccountCog fillColor="#f8f8f2" :size="20"/>
+            <ListBox fillColor="#f8f8f2" :size="20"/>
             <div class="mx-1 my-3 items-center">
               TIER LIST
             </div>

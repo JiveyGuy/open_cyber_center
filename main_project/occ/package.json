@@ -12,7 +12,9 @@
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
     "vue": "^3.2.45",
-    "vue-material-design-icons": "^5.2.0"
+    "vue-material-design-icons": "^5.2.0",
+    "vue3-google-login": "^2.0.15",
+    "vue3-google-oauth2": "^1.0.7"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",

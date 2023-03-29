@@ -27,11 +27,11 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.ccc.dev",
+      "identifier": "com.occ.dev",
       "targets": "all"
     },
     "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'  img-src: 'self'"
+      "csp": "default-src 'self' blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline'; script-src-elem 'self' https://accounts.google.com 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline'; style-src 'self' https://accounts.google.com 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline';"
     },
     "updater": {
       "active": false

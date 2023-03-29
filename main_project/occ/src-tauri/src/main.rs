@@ -76,8 +76,19 @@ mod ui {
   }
 
   pub fn main() {
+    let port = portpicker::pick_unused_port().expect("failed to find unused port");
+
+    let mut context = tauri::generate_context!();
+    let url = format!("http://localhost:{}", port).parse().unwrap();
+    let window_url = WindowUrl::External(url);
+    // rewrite the config so the IPC is enabled on this URL
+    context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
+    context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
+
+
     tauri::Builder::default()
-      .setup(|app| {
+      .plugin(tauri_plugin_localhost::Builder::new(port).build())
+      .setup(move |app| {
         // set the splashscreen and main windows to be globally available with the tauri state API
         app.manage(SplashscreenWindow(Arc::new(Mutex::new(
           app.get_window("splashscreen").unwrap(),
