@@ -26,12 +26,12 @@
   
   <div class="h-fit bg-black flex justify-center items-center">
     <button @click="handle_start" type="submit" class="whitespace-nowrap overflow-hidden">
-    <div class="w-screen h-screen relative z-0">
-      <video-background 
-        :src=start_video
-        class="h-screen"
-      />
-        </div>
-        </button>
+      <div class="w-screen h-screen relative z-0">
+        <video-background 
+          :src=start_video
+          class="h-screen"
+        />
       </div>
+    </button>
+  </div>
 </template>
