@@ -16,6 +16,15 @@
 
   // let name = ref("");
 
+  const emits = defineEmits<{(id: 'live'): void}>();
+
+  
+  let handle_live = function() {
+    // This callback will be triggered when the user selects or login to
+    // his Google account from the popup    
+    emits("live");
+  };
+
 </script>
 
 <template>
@@ -42,13 +51,14 @@
               HOME
             </div>
           </div>  
-          
-          <div class="mx-auto my-auto flex flex-row items-center text-Red cursor-pointer">
-            <VideoBox fillColor="#ff5555" :size="20" />
-            <div class="mx-1 my-3 items-center">
-              LIVE
-            </div>
-          </div>  
+          <button @click="handle_live" type="submit">
+            <div class="mx-auto my-auto flex flex-row items-center text-Red cursor-pointer">
+              <VideoBox fillColor="#ff5555" :size="20" />
+              <div class="mx-1 my-3 items-center">
+                LIVE
+              </div>
+            </div> 
+          </button> 
 
           <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
             <AccountGroup fillColor="#f8f8f2" :size="20" />

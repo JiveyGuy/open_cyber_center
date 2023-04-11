@@ -1,0 +1,11 @@
+[package]
+name = "test_functions"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mongodb = "2.1"
+futures = "0.3"
+bson = { version = "2" }
+tokio = { version = "1", features = ["macros", "full"]}
+serde = "1" # Used in the Map Data into Structs section
