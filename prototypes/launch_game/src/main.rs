@@ -11,7 +11,7 @@ async fn launch_program(prog: Program) {
 
 fn main() {
     let gmod_program = Program{
-        location: "G:\\SteamLibrary\\steamapps\\common\\Among Us.exe".to_string(),
+        location: "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe".to_string(),
     };
     let rt = tokio::runtime::Runtime::new().unwrap();
     rt.block_on(launch_program(gmod_program));
