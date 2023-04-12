@@ -1,4 +1,4 @@
-use std::{env};
+use std::{env, vec};
 use bson::oid::ObjectId;
 use futures::{TryStreamExt};
 use serde::{Deserialize, Serialize};
@@ -11,10 +11,10 @@ struct GameStruct {
     name: String,
     description: String,
     year: String,
+    rating: String,
     video_url: String,
     img_url: String,
 }
-
 
 
 #[tokio::main]
@@ -58,4 +58,8 @@ async fn main() {
 
     let vec_cursor = cursor.try_collect().await.unwrap_or_else(|_| vec![]);
     println!("len: {}", vec_cursor.len());
+
+    for entry in vec_cursor {
+        println!("{}", entry.name);
+    }
 }
