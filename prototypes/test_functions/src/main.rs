@@ -53,6 +53,9 @@ async fn main() {
 
     let cursor = games.find(None, None).await.expect("error");
 
+    print!("debug info:");
+    // println!("{}", cursor.);
+
     let vec_cursor = cursor.try_collect().await.unwrap_or_else(|_| vec![]);
     println!("len: {}", vec_cursor.len());
 }
