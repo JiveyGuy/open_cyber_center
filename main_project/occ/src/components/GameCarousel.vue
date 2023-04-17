@@ -1,7 +1,29 @@
 <script lang="ts">
   import { ref } from 'vue';
+  import { defineComponent } from 'vue'
+  import games from '../games.json';
 
-  export default {
+  interface Game {
+    id: number;
+    name: string;
+    description: string;
+    year: string;
+    rating: string;
+    video_url: string;
+    img_url: string;
+  }
+
+  export default defineComponent({
+    name: 'GameList',
+    data() {
+      return {
+        games: [] as Game[],
+      };
+    },
+    mounted() {
+      this.games = games;
+    },
+
     setup() {
       const carouselTrack = ref<HTMLElement | null>(null);
       let startX: number | null = null;
@@ -32,7 +54,7 @@
         handleMouseUp,
       };
     },
-  };
+  });
 </script>
 
 
@@ -46,18 +68,15 @@
         @mousemove="handleMouseMove"
         @mouseup="handleMouseUp"
       >
+      <div v-for="game in games" :key="game.id">
+
         <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
-          <img src="..\assets\MWII-poster.jpg" alt="Poster 1" class="rounded-3xl " />
-        </div>
-        
-        <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
-          <img src="..\assets\MWII-poster.jpg" alt="Poster 2" class="rounded-3xl " />
+          <img :src="'/assets/images/${game.img_url}'" :alt="game.name" class="rounded-3xl " />
         </div>
 
-        <div class="carousel-item flex-none w-40 h-40 rounded-3xl px-2 shadow-sm">
-          <img src="..\assets\MWII-poster.jpg" alt="Poster 3" class="rounded-3xl" />
-        </div>
-      </div>
+       </div>
+       </div>
+
     </div>
   </div>
 </template>

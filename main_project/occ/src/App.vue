@@ -6,14 +6,11 @@
   // 
   import { ref } from "vue";
   import { onMounted } from "vue";
-
   
   import Login from "./components/Login.vue";
   import StartScreen from "./components/StartScreen.vue";
   import MainPage from "./components/MainPage.vue";
 
-  // import movies from './movies.json';
-  
   let isLoggedIn = ref(false);
   let isStarted = ref(false);
 
@@ -32,6 +29,7 @@
           <div v-else>
             <MainPage />
           </div>
+          
       </transition>
     </div>
   </transition>

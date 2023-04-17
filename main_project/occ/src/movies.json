@@ -6,7 +6,7 @@
             "year": "2022",
             "rating": "1.2/10",
             "video_url": "blank",
-            "img_url": "onedrive.com/img.png"
+            "img_url": "/assets/images/csgo-poster-2.jpg"
         },
         { 
             "name": "All Quiet on the Western Front",
@@ -14,7 +14,7 @@
             "year": "2022",
             "rating": "1.2/10",
             "video_url": "blank",
-            "img_url": "onedrive.com/img.png"
+            "img_url": "/assets/images/GTAV-poster.jpg"
         }
     ]
 }
