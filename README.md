@@ -3,3 +3,12 @@ This is the home of the Open Cyber Center software. This software is a compatibi
 
 
 Track our development @ https://trello.com/b/RvS0hcib/open-cyber-cafe 
+
+
+# Dev Install
+```
+git clone git@github.com:JiveyGuy/open_cyber_center.git
+cd open_cyber_center\main_project\occ
+npm install
+npm run tauri dev
+```
