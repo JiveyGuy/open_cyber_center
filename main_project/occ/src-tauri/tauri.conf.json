@@ -3,7 +3,10 @@
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
-    "distDir": "../dist",
+    "distDir": [
+      "../",
+      "main_project/occ/index.html"
+    ],
     "withGlobalTauri": false
   },
   "package": {
@@ -37,11 +40,6 @@
       "active": false
     },
     "windows": [
-      {
-        "fullscreen": true,
-        "resizable": false,
-        "title": "occ"
-      },
       {
         "fullscreen": true,
         "resizable": false,

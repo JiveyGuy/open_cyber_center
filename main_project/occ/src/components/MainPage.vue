@@ -6,6 +6,11 @@
   import GameCarousel from "./GameCarousel.vue"
 
   let isLivePage = ref(false);
+  let isTierPage = ref(false);
+  let isPlayPage = ref(false);
+  let isFundPage = ref(false);
+
+
 </script>
 
 <template>
@@ -40,13 +45,8 @@
             <GameCarousel/>
           </div>
 
-        <!-- </div> -->
-        <!-- <div v-else>
-          <LivePage />
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 </template>

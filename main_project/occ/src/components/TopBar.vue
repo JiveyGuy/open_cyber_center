@@ -17,13 +17,32 @@
 
   // let name = ref("");
 
-  const emits = defineEmits<{(id: 'live'): void}>();
+  const emits = defineEmits<{
+    (id: 'home'): void, 
+    (id: 'live'): void, 
+    (id: 'play'): void, 
+    (id: 'fund'): void, 
+    (id: 'tier'): void,
+    (id: 'gg'): void, 
+  }>();
 
-  
+  let handle_home = function() {
+    emits("home");
+  };
   let handle_live = function() {
-    // This callback will be triggered when the user selects or login to
-    // his Google account from the popup    
     emits("live");
+  };
+  let handle_play = function() {
+    emits("play");
+  };
+  let handle_fund = function() {
+    emits("fund");
+  };
+  let handle_tier = function() {
+    emits("tier");
+  };
+  let handle_gg = function() {
+    emits("gg");
   };
 
 </script>
@@ -45,49 +64,63 @@
           <div>
             <ProfileView/>
           </div>
-          
-          <div class="mx-auto my-auto flex flex-row items-center cursor-pointer">
-            <HomeOutline fillColor="#f8f8f2" :size="20" />
-            <div class="mx-1 my-3 items-center">
-              <button v-on:click="home_selected">HOME</button>
-            </div>
-          </div>  
+
+          <button @click="handle_home" type="submit">
+            <div class="mx-auto my-auto flex flex-row items-center cursor-pointer">
+              <HomeOutline fillColor="#f8f8f2" :size="20" />
+              <div class="mx-1 my-3 items-center">
+                HOME
+              </div>
+            </div> 
+          </button>
+
           <button @click="handle_live" type="submit">
             <div class="mx-auto my-auto flex flex-row items-center text-Red cursor-pointer">
               <VideoBox fillColor="#ff5555" :size="20" />
               <div class="mx-1 my-3 items-center">
-                <button @click="live_selected">LIVE</button>
+                LIVE
               </div>
             </div> 
           </button> 
 
-          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
-            <AccountGroup fillColor="#f8f8f2" :size="20" />
-            <div class="mx-1 my-3 items-center text-sm">
-              <button @click="play_selected">PLAY2GETHER</button>
-            </div>
-          </div>  
+          <button @click="handle_play" type="submit">
+            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+              <AccountGroup fillColor="#f8f8f2" :size="20" />
+              <div class="mx-1 my-3 items-center text-sm">
+                PLAY2GETHER
+              </div>
+            </div>  
+          </button>
 
-          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
-            <AccountCash fillColor="#f8f8f2" :size="20" />
-            <div class="mx-1 my-3 items-center">
-              <button @click="funds_selected">FUNDS</button>
-            </div>
-          </div>  
+          <button @click="handle_fund" type="submit">
+            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+              <AccountCash fillColor="#f8f8f2" :size="20" />
+              <div class="mx-1 my-3 items-center">
+                FUNDS
+              </div>
+            </div>  
+          </button>
 
-          <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
-            <ListBox fillColor="#f8f8f2" :size="20"/>
-            <div class="mx-1 my-3 items-center">
-              <button @click="tier_selected">TIER LIST</button>
-            </div>
-          </div>  
+          <button @click="handle_tier" type="submit">
+            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+              <ListBox fillColor="#f8f8f2" :size="20"/>
+              <div class="mx-1 my-3 items-center">
+                TIER LIST
+              </div>
+            </div>  
+          </button>
 
-          <div class=" flex flex-row mx-auto my-auto items-center cursor-pointer text-Yellow hover:shadow-Yellow hover:drop-shadow-lg">
+          <button @click="handle_gg" type="submit">
+            <div class=" flex flex-row mx-auto my-auto items-center cursor-pointer text-Yellow hover:shadow-Yellow hover:drop-shadow-lg">
               <ExitToApp fillColor="#f1fa8c" :size="20" />
               <div class="mx-1 my-3 items-center">
-                <div class="hover:shadow-Green "><button @click="gg_selected">GG</button></div>
+                <div class="hover:shadow-Green ">
+                  GG
+                </div>
               </div>
-          </div>
+            </div>
+          </button>
+
         </div>
       </div>
     </div>
