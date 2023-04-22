@@ -1,0 +1,5 @@
+/* @import "node_modules/vue-gifplayer/src/gif.scss"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
