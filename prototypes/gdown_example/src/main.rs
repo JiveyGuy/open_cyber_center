@@ -20,23 +20,32 @@ fn update_local_resources(g_id: &str, out_str: &str) {
 // example: mv_and_unzip("tmp.zip", "tmp")
 fn mv_and_unzip(loc_start: &str, loc_end: &str) {
     
-    fs::create_dir("loc_end")?;
+    let resting_path: &str = &f!("{loc_end}/tmp.zip");
+    println!("{}",f!("resting_path = ./{resting_path}"));
     
-    let _output = Command::new("mv")
-        .arg(loc_start)
-        .arg(loc_end)
-        .output()
-        .expect("Failed to run command.");
+    if std::path::Path::new(resting_path).exists() {
+        fs::remove_file(resting_path)
+            .expect("Failed to remove goal file.");
+    }   
+   
+    fs::rename(loc_start, resting_path)
+        .expect("Failed to move file.");
 
     let _output = Command::new("tar")
         .arg("-xf")
-        .arg(f!("{loc_end}/tmp.zip"))
+        .arg(resting_path)
+        .arg("-C")
+        .arg(loc_end)
         .output()
         .expect("Failed to run command.");
 }
 
-fn main() {
+fn download_all(){
     update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", "tmp.zip");
     println!("Download, done!");
-    mv_and_unzip("tmp.zip", "tmp");
+    mv_and_unzip("tmp.zip", "./tmp");
+}
+
+fn main() {
+    
 }

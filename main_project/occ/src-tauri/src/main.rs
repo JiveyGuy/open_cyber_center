@@ -1,8 +1,8 @@
 // // Prevents additional console window on Windows in release, DO NOT REMOVE!!
-#![cfg_attr(
-    all(not(debug_assertions), target_os = "windows"),
-    windows_subsystem = "windows"
-  )]
+// #![cfg_attr(
+//     all(not(debug_assertions), target_os = "windows"),
+//     windows_subsystem = "windows"
+//   )]
 
 // // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 // #[tauri::command]
@@ -24,33 +24,16 @@
 mod rust {
   use std::{thread::sleep, time::Duration};
   use tauri::Manager;
-  use tauri::{utils::config::AppUrl, window::WindowBuilder, WindowUrl};
 
   // this command is here just so the example doesn't throw an error
   #[tauri::command]
   fn close_splashscreen() {}
 
   pub fn main() {
-
-    let port = portpicker::pick_unused_port().expect("failed to find unused port");
-
-    let mut context = tauri::generate_context!();
-    let url = format!("http://localhost:{}", port).parse().unwrap();
-    let window_url = WindowUrl::External(url);
-
-    context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
-    context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
-    
     tauri::Builder::default()
-      .plugin(tauri_plugin_localhost::Builder::new(port).build())
-      .setup(move |app| {
-        
-        println!("{}", window_url.to_string());
-        let main_window = WindowBuilder::new(app, "main".to_string(), window_url)
-          .title("Localhost Example")
-          .build()?;
-        
+      .setup(|app| {
         let splashscreen_window = app.get_window("splashscreen").unwrap();
+        let main_window = app.get_window("main").unwrap();
         // we perform the initialization code on a new task so the app doesn't freeze
         tauri::async_runtime::spawn(async move {
           println!("Initializing...");
@@ -64,7 +47,7 @@ mod rust {
         Ok(())
       })
       .invoke_handler(tauri::generate_handler![close_splashscreen])
-      .run(context)
+      .run(tauri::generate_context!())
       .expect("failed to run app");
   }
 }
@@ -93,8 +76,19 @@ mod ui {
   }
 
   pub fn main() {
+    let port = portpicker::pick_unused_port().expect("failed to find unused port");
+
+    let mut context = tauri::generate_context!();
+    let url = format!("http://localhost:{}", port).parse().unwrap();
+    let window_url = WindowUrl::External(url);
+    // rewrite the config so the IPC is enabled on this URL
+    context.config_mut().build.dist_dir = AppUrl::Url(window_url.clone());
+    context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
+
+
     tauri::Builder::default()
-      .setup(|app| {
+      .plugin(tauri_plugin_localhost::Builder::new(port).build())
+      .setup(move |app| {
         // set the splashscreen and main windows to be globally available with the tauri state API
         app.manage(SplashscreenWindow(Arc::new(Mutex::new(
           app.get_window("splashscreen").unwrap(),

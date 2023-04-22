@@ -43,6 +43,11 @@
       {
         "fullscreen": true,
         "resizable": false,
+        "title": "occ"
+      },
+      {
+        "fullscreen": true,
+        "resizable": false,
         "decorations": false,
         "url": "https://geekprank.com/matrix-code-rain/",
         "label": "splashscreen"
