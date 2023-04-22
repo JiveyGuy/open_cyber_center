@@ -12,3 +12,15 @@ cd open_cyber_center\main_project\occ
 npm install
 npm run tauri dev
 ```
+
+# To Make a New Prototype
+```
+cd open_vyber_center/prototypes
+npm create tauri-app@latest
+  ✔ Project name · <prototyoe_name>
+  ✔ Package name · <prototyoe_name>
+  ✔ Choose which language to use for your frontend · TypeScript / JavaScript - (pnpm, yarn, npm)
+  ✔ Choose your package manager · npm
+  ✔ Choose your UI template · Vue - (https://vuejs.org)
+  ✔ Choose your UI flavor · TypeScript
+```
