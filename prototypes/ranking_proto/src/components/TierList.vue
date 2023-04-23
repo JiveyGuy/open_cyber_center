@@ -19,11 +19,11 @@ export default defineComponent({
   data() {
     return {
       items: [
-        { id: 1, name: 'Item 1', image: 'path/to/image1.jpg' },
-        { id: 2, name: 'Item 2', image: 'path/to/image2.jpg' },
-        { id: 3, name: 'Item 3', image: 'path/to/image3.jpg' },
-        { id: 4, name: 'Item 4', image: 'path/to/image4.jpg' },
-        { id: 5, name: 'Item 5', image: 'path/to/image5.jpg' }
+        { id: 1, name: 'Item 1', image: '../assets/download.png' },
+        { id: 2, name: 'Item 2', image: '../assets/download.png' },
+        { id: 3, name: 'Item 3', image: '../assets/download.png' },
+        { id: 4, name: 'Item 4', image: '../assets/download.png' },
+        { id: 5, name: 'Item 5', image: '../assets/download.png' }
       ]
     }
   },
