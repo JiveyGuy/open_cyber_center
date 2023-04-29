@@ -1,44 +1,44 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Greet from "./components/Greet.vue";
-</script>
-
 <template>
-  <div class="container">
-    <h1>Fuck you little bitch!</h1>
-
-    <div class="row">
-      <a href="https://vitejs.dev" target="_blank">
-        <img src="/vite.svg" class="logo vite" alt="Vite logo" />
-      </a>
-      <a href="https://tauri.app" target="_blank">
-        <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
-    </div>
-
-    <p>Enter a name if you're not a pussy!.</p>
-
-    <p>
-      Your mom's favorite websites:
-      <a href="https://www.youtube.com/watch?v=poa_QBvtIBA" target="_blank">Funky Town!</a>
-      +
-      <a href="www.google.com" target="_blank">Google!</a>
-    </p>
-
-    <Greet />
+  <div id="nav" v-if="$store.state.user">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+    <button @click="$store.dispatch('logout')">Logout</button>
   </div>
+  <router-view/>
 </template>
 
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
+<script lang="ts">
+import { onBeforeMount } from 'vue'
+import { useStore } from 'vuex'
+export default {
+  setup() {
+    const store = useStore()
+    onBeforeMount(() => {
+      store.dispatch('fetchUser')
+    })
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
