@@ -71,7 +71,7 @@
       <div v-for="game in games" :key="game.id">
 
         <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
-          <img :src="'/assets/images/csgo-poster-2.jpg'" :alt="game.name" class="rounded-3xl" />
+          <img :src = "game.img_url" :alt="game.name" class="rounded-3xl" />
         </div>
 
        </div>

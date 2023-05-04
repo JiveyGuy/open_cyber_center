@@ -39,6 +39,7 @@
 
           <div class="items-center row-start-3 row-span-1 col-start-3 col-end-13 m-4 text-amber-500">
             <GameCarousel/>
+            <h>HERE</h>
           </div>
 
           <div class="items-center row-start-4 row-span-1 col-start-3 col-end-13 m-4 text-amber-500">
