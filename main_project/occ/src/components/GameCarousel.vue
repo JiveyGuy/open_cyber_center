@@ -72,6 +72,9 @@
 
         <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
           <img :src = "game.img_url" :alt="game.name" class="rounded-3xl" />
+          <div class="game-name-center" style="position:relative;">
+            <p v-text="game.name"/>
+          </div>
         </div>
 
        </div>
