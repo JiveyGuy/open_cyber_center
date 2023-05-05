@@ -3,7 +3,7 @@
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn update_entry(name: &str, description: &str, year: &str, rating: &str, video_url: &str, img_url: &str, exe_url: &str) {
+fn update_entry(id: i16, name: &str, description: &str, year: &str, rating: &str, video_url: &str, img_url: &str, exe_url: &str) {
     println!("I was called with game name: \"{}\"", name);
     println!("I was called with game description: \"{}\"", description);
     println!("I was called with game year: \"{}\"", year);

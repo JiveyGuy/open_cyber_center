@@ -51,7 +51,7 @@
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.exe_url" type="text" />
         </div>
         
-        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 " type="button" @click="update_entry(game.name)">
+        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 " type="button" @click="update_entry(game.id, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)">
           <button class="text-white" >UPDATE</button>
         </div>
         
@@ -65,7 +65,6 @@
 import { ref } from 'vue';
 import gamesData from './games.json';
 import { invoke } from "@tauri-apps/api/tauri";
-import internal from 'stream';
 
 const games = ref(gamesData);
 
