@@ -59,6 +59,16 @@
     isHomePage.value = true;
   }
 
+  // gg will log person out
+  //  then go to login screen
+  function gg() {
+    isLivePage.value = false;
+    isTierPage.value = false;
+    isPlayPage.value = false;
+    isFundPage.value = false;
+    isHomePage.value = true;
+  }
+
 </script>
 
 <template>
@@ -90,27 +100,27 @@
           
           <!-- div section for LIVE page -->  
           <div v-if="isLivePage && !isTierPage && !isPlayPage && !isFundPage && !isHomePage">
-            <OtherPage />
+            LIVE page
           </div>
           
           <!-- div section for TIER page -->  
           <div v-if="!isLivePage && isTierPage && !isPlayPage && !isFundPage && !isHomePage">
-            <OtherPage />
+            TIER page
           </div>
 
           <!-- div section for PLAY page -->  
           <div v-if="!isLivePage && !isTierPage && isPlayPage && !isFundPage && !isHomePage">
-            <OtherPage />
+            PLAY page
           </div>
 
           <!-- div section for FUND page -->
           <div v-if="!isLivePage && !isTierPage && !isPlayPage && isFundPage && !isHomePage">
-            <OtherPage />
+            FUND page
           </div>
 
           <!-- div section for HOME page -->
           <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage">
-            <MainPage />
+            HOME page
           </div>
          
 
