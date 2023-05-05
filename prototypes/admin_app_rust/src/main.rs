@@ -84,6 +84,5 @@ async fn main() -> std::io::Result<()> {
     file.write_all(buffer_string.as_bytes())?;
     Ok(())
 
-    
 
 }
