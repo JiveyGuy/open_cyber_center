@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.jpg
+*.mp4
+*.mp3
+*/target/*
+./source/assets/*
