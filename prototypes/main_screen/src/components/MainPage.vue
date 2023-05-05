@@ -4,8 +4,13 @@
   import TopBar from "./TopBar.vue";
   import Stats from "./Stats.vue";
   import GameCarousel from "./GameCarousel.vue"
-  import OtherPage from "./OtherPage.vue";
+  import TierPage from "./TierPage.vue";
+  import LivePage from "./LivePage.vue";
 
+
+  const emits = defineEmits<{
+    (id: 'gg'): void, 
+  }>();
 
   let isLivePage = ref(false);
   let isTierPage = ref(false);
@@ -61,21 +66,17 @@
 
   // gg will log person out
   //  then go to login screen
-  function gg() {
-    isLivePage.value = false;
-    isTierPage.value = false;
-    isPlayPage.value = false;
-    isFundPage.value = false;
-    isHomePage.value = true;
+  function handleGG() {
+    emits("gg");
   }
 
 </script>
 
 <template>
-<div class="fixed w-full h-screen bg-purple-900">
-  <div class="h-32 ">
-    <div class="grid-container" >
-      <div class="grid grid-cols-12 gap-0 grid-rows-8 scrollbar scrollbar-thumb-amber-300 scrollbar-track-slate-600"  style="height: calc(100% - 64px); overflow: scroll;">
+<div class="w-full h-full bg-purple-900" style="height: calc(100%); overflow: scroll;">
+  <div class="">
+    <div class="grid-container " >
+      <div class="grid grid-cols-12 gap-0 grid-rows-8 " >
           
         <div class="col-start-1 row-span-6 row-start-1 col-span-2 m-4">
           <TopBar @live="showLivePage"
@@ -83,6 +84,7 @@
                   @play="showPlayPage"
                   @fund="showFundPage" 
                   @home="showHomePage"
+                  @gg="handleGG"
                   />
         </div>
 
@@ -94,18 +96,16 @@
             <SearchBar/>
           </div>  
 
-          <div class="items-center row-start-2 row-span-1 col-start-3 col-end-13 m-4 text-amber-500">
-            <GameCarousel/>
-          </div>
+          
           
           <!-- div section for LIVE page -->  
           <div v-if="isLivePage && !isTierPage && !isPlayPage && !isFundPage && !isHomePage">
-            LIVE page
+            <LivePage/>
           </div>
           
           <!-- div section for TIER page -->  
           <div v-if="!isLivePage && isTierPage && !isPlayPage && !isFundPage && !isHomePage">
-            TIER page
+            <TierPage/>
           </div>
 
           <!-- div section for PLAY page -->  
@@ -119,8 +119,17 @@
           </div>
 
           <!-- div section for HOME page -->
-          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage">
-            HOME page
+          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage" class="items-center row-start-2 row-span-1 col-start-3 col-end-13 m-4">
+            <div class="text-amber-500">
+              Recommended
+              <GameCarousel/>
+              New
+              <GameCarousel/>
+              Yours
+              <GameCarousel/>
+              Old
+              <GameCarousel/>
+            </div>
           </div>
          
 

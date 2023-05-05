@@ -4,8 +4,8 @@
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
     "distDir": [
-      "../",
-      "main_project/occ/index.html"
+      "/dist",
+      "/index.html"
     ],
     "withGlobalTauri": false
   },

@@ -4,13 +4,12 @@
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
     "distDir": [
-      "../",
-      "main_project/occ/index.html"
+      "../dist"
     ],
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "occ",
+    "productName": "main_screen",
     "version": "0.0.0"
   },
   "tauri": {
@@ -34,7 +33,7 @@
       "targets": "all"
     },
     "security": {
-      "csp": "default-src 'self' blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline'; script-src-elem 'self' https://accounts.google.com 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline'; style-src 'self' https://accounts.google.com 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline';"
+      "csp" : null
     },
     "updater": {
       "active": false
@@ -43,7 +42,16 @@
       {
         "fullscreen": true,
         "resizable": false,
+        "label": "main_widow",
         "title": "occ"
+      },
+      {
+        "width": 998,
+        "height": 400,
+        "decorations": false,
+        "url": "/src/splash.png",
+        "label": "splash_window",
+        "center":true
       }
     ]
   }

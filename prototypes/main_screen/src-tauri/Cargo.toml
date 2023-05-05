@@ -2,7 +2,7 @@
 name = "main_screen"
 version = "0.0.0"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["Jason Ivey", "Courtney Mueller"]
 license = ""
 repository = ""
 edition = "2021"
@@ -11,11 +11,13 @@ edition = "2021"
 
 [build-dependencies]
 tauri-build = { version = "1.2", features = [] }
+winres = "0.1"
 
 [dependencies]
 tauri = { version = "1.2", features = ["shell-open"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+fstrings = "0.2.3"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem

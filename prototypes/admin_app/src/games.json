@@ -1,0 +1,44 @@
+[
+    { 
+            "id": 0,
+            "name": "Apex Legends",
+            "description": "A battle royale shooter game where competitors battle for glory, fame, and fortune.",
+            "year": "2019",
+            "rating": "blank",
+            "video_url": "blank",
+            "img_url": "/src/assets/large_files/imgs/posters/apex-legends-poster2.jpg",
+            "exe_url": "temp"
+            
+        },
+        { 
+            "id": 1,
+            "name": "CS: GO",
+            "description": "A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
+            "year": "2012",
+            "rating": "blank",
+            "video_url": "blank",
+            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg",
+            "exe_url": "temp"
+            
+        },
+		{ 
+            "id": 2,
+            "name": "Fallout 4",
+            "description": "A post-apocalyptic role-playing game that's the 5th major installment of the Fallout series with the story taking place 10 years after Fallout 3.",
+            "year": "2015",
+            "rating": "blank",
+            "video_url": "blank",
+            "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg",
+            "exe_url": "temp"
+        },
+		{
+            "id": 3, 
+            "name": "Hogwarts Legacy",
+            "description": "An immersive, open-world action role-playing game set in the magical world of Harry Potter.",
+            "year": "2023",
+            "rating": "blank",
+            "video_url": "blank",
+            "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg",
+            "exe_url": "temp"
+        }
+]
