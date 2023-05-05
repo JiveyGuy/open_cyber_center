@@ -69,8 +69,8 @@ import internal from 'stream';
 
 const games = ref(gamesData);
 
-async function update_entry(name: string, id: number, description: string, name: string, ) {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    await invoke("update_entry", { name: name,  });
+async function update_entry(id: number, name: string, description: string, year: string, rating: string, video_url: string, img_url: string, exe_url: string) {
+  // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+  await invoke("update_entry", { id: id, name: name, description: description, year: year, rating: rating, video_url: video_url, img_url: img_url, exe_url: exe_url });
 }
 </script>
