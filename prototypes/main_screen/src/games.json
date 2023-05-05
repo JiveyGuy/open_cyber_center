@@ -6,7 +6,8 @@
             "year": "2019",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg",
+            "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
         { 
             "id": 1,
@@ -15,7 +16,8 @@
             "year": "2012",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg",
+            "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{ 
             "id": 2,
@@ -24,7 +26,8 @@
             "year": "2015",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 3, 
@@ -33,7 +36,8 @@
             "year": "2023",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 4, 
@@ -42,7 +46,8 @@
             "year": "2022",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/overwatch2-poster-2.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/overwatch2-poster-2.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 5,
@@ -51,7 +56,8 @@
             "year": "2006",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/roblox-poster.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/roblox-poster.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 6, 
@@ -60,7 +66,8 @@
             "year": "2015",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/rocket-league-poster2.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/rocket-league-poster2.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 7, 
@@ -69,7 +76,8 @@
             "year": "2014",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/smite-poster2.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/smite-poster2.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 8, 
@@ -78,7 +86,8 @@
             "year": "2020",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/valorant-poster.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/valorant-poster.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
         },
 		{
             "id": 9, 
@@ -87,6 +96,7 @@
             "year": "2004",
             "rating": "blank",
             "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/wrld-o-wrcrft-poster2.jpg"
+             "img_url": "/src/assets/large_files/imgs/posters/wrld-o-wrcrft-poster2.jpg",
+             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
     }
 ]

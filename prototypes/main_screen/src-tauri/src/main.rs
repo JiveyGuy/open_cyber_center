@@ -104,11 +104,18 @@ async fn close_splash (window: tauri::Window) -> bool{
     return download_all();
 }
 
+#[tauri::command]
+fn update_entry(name: &str) {
+    let _output = Command::new(name)
+        .spawn()
+        .expect("failed to execute process");
+}
+
 fn main()
 {
 
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![close_splash])
+        .invoke_handler(tauri::generate_handler![close_splash, update_entry])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -4,10 +4,10 @@
   import { ref } from "vue";
   import { invoke } from "@tauri-apps/api/tauri";
 
-  let img = ("https://media.istockphoto.com/id/1307387607/vector/anonymous-vector-icon-incognito-sign-privacy-concept-human-head-with-glitch-face-personal.jpg?s=612x612&w=0&k=20&c=gABTCg7-xeCyeWDF-JnNzPbpnCeTX8wH-TxIYdkC0yQ=");
-  let name = ("player");
-  let level = ("lvl 10");
-  let timeLeft = ("10:00");
+  let img = ("https://avatars.githubusercontent.com/u/20270893?v=4");
+  let name = ("Jivey");
+  let level = ("lvl 0");
+  let timeLeft = ("0:00");
 
 </script>
 

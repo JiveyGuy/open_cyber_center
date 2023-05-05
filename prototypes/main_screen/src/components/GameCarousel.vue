@@ -2,6 +2,7 @@
   import { ref } from 'vue';
   import { defineComponent } from 'vue'
   import games from '../games.json';
+  import { invoke } from "@tauri-apps/api/tauri";
 
   interface Game {
     id: number;
@@ -11,7 +12,9 @@
     rating: string;
     video_url: string;
     img_url: string;
+    exe_url: string;
   }
+  
 
   export default defineComponent({
     name: 'GameList',
@@ -28,6 +31,11 @@
       const carouselTrack = ref<HTMLElement | null>(null);
       let startX: number | null = null;
       let currentTranslate = 0;
+
+      async function handle_click(name: string)
+      {
+        await invoke("update_entry", { name: name});
+      };
     
       function handleMouseDown(event: MouseEvent) {
         startX = event.clientX;
@@ -52,6 +60,7 @@
         handleMouseDown,
         handleMouseMove,
         handleMouseUp,
+        handle_click
       };
     },
   });
@@ -69,11 +78,15 @@
         @mouseup="handleMouseUp"
       >
       <div v-for="game in games" :key="game.id">
-
-        <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
-          <img :src="game.img_url" :alt="game.name" class="rounded-3xl " />
-        </div>
-
+        <button @click="handle_click(game.exe_url)" type="submit">
+          <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
+            <img :src="game.img_url" :alt="game.name" class="rounded-3xl " />
+          </div>
+          <div class = "animate-pulse m-10 bg-gradient-to-r from-green-700 to-purple-600 rounded-sm opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt">
+            {{ game.name }}
+          </div>
+        </button>
+          
        </div>
        </div>
 

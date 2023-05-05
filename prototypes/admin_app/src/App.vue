@@ -1,7 +1,11 @@
 <template>
   <div class="container mx-auto bg-black">
+  <div class="flex text-white justify-center">
+    OPEN CYBER CENTER ADMIN EDITOR
+  </div>
+    
     <h1 class="text-4xl mb-8">Game List</h1>
-    <div class="grid grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-6">
       <div
         v-for="game in games"
         :key="game.id"
