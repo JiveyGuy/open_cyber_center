@@ -10,7 +10,14 @@ const clipUrl = ref("https://clips.twitch.tv/BashfulHelpfulSalamanderPrimeMe");
 <template>
   <!-- LIVE-PAGE --> 
 
-  <div>
+  <iframe
+    src="https://player.twitch.tv/?video=v1807129314&parent=streamernews.example.com&autoplay=false&parent=localhost"
+    height="720"
+    width="1280"
+    allowfullscreen>
+  </iframe>
+
+ <!-- <div>
     <iframe
       :src="clipUrl.valueOf"
       height="378"
@@ -19,6 +26,6 @@ const clipUrl = ref("https://clips.twitch.tv/BashfulHelpfulSalamanderPrimeMe");
       scrolling="no"
       allowfullscreen="true">
     </iframe>
-  </div>
+  </div> -->
 
 </template>
