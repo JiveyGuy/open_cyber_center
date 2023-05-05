@@ -50,8 +50,9 @@
           exe_url:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.exe_url" type="text" />
         </div>
-        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 ">
-          <button class="text-white" type="button" @click="update_entry(game.name)">UPDATE</button>
+        
+        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 " type="button" @click="update_entry(game.name)">
+          <button class="text-white" >UPDATE</button>
         </div>
         
 
@@ -64,11 +65,12 @@
 import { ref } from 'vue';
 import gamesData from './games.json';
 import { invoke } from "@tauri-apps/api/tauri";
+import internal from 'stream';
 
 const games = ref(gamesData);
 
-async function update_entry(name: string) {
+async function update_entry(name: string, id: number, description: string, name: string, ) {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    await invoke("update_entry", { entry_name: name });
+    await invoke("update_entry", { name: name,  });
 }
 </script>

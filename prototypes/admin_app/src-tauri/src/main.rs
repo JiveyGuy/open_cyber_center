@@ -3,13 +3,17 @@
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn update_entry(name: &str, ) {
+    println!("I was called with game name: \"{}\"", name);
+
+    // search mongo db with cursor for game name
+    
+    // when found, update all info
 }
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![update_entry])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
