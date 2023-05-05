@@ -5,6 +5,7 @@
   import Stats from "./Stats.vue";
   import GameCarousel from "./GameCarousel.vue"
   import OtherPage from "./OtherPage.vue";
+import LivePage from "./LivePage.vue";
 
 
   let isLivePage = ref(false);
@@ -94,13 +95,11 @@
             <SearchBar/>
           </div>  
 
-          <div class="items-center row-start-2 row-span-1 col-start-3 col-end-13 m-4 text-amber-500">
-            <GameCarousel/>
-          </div>
+          
           
           <!-- div section for LIVE page -->  
           <div v-if="isLivePage && !isTierPage && !isPlayPage && !isFundPage && !isHomePage">
-            LIVE page
+            <LivePage/>
           </div>
           
           <!-- div section for TIER page -->  
@@ -119,8 +118,10 @@
           </div>
 
           <!-- div section for HOME page -->
-          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage">
-            HOME page
+          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage" class="items-center row-start-2 row-span-1 col-start-3 col-end-13 m-4">
+            <div class="text-amber-500">
+              <GameCarousel/>
+            </div>
           </div>
          
 
