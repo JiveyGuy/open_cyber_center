@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./main.ts",
+    "./src/main.ts",
     "./src/**/*.{css,vue,js,ts,jsx,tsx}",
   ],
   theme: {
@@ -21,7 +21,6 @@ module.exports = {
         "Yellow"       : "#f1fa8c"
       },
     }
-  },
-  plugins: [require('tailwind-scrollbar'),],
+  }
   
 }
