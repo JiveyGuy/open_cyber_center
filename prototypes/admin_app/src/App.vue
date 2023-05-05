@@ -16,40 +16,43 @@
         <!-- add for every item in .json  -->
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          name:
+          name:  
           <input class = "py-2 rounded-sm text-white bg-neutral-700" v-model="game.name" type="text" />
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          description:
+          description:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.description" type="text" />
+          
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          year:
+          year:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.year" type="text" />
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          rating:
+          rating:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.rating" type="text" />
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          video_url:
+          video_url:  
           <input class = "py-2 rounded-sm text-white bg-neutral-700" v-model="game.video_url" type="text" />
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          img_url:
+          img_url:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.img_url" type="text" />
         </div>
 
         <div class = " rounded-sm text-white text-slate-900 py-4">
-          exe_url:
+          exe_url:  
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.exe_url" type="text" />
         </div>
-
+        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 ">
+          <button class="text-white" type="button" @click="update_entry(game.name)">UPDATE</button>
+        </div>
         
 
       </div>
@@ -60,6 +63,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import gamesData from './games.json';
+import { invoke } from "@tauri-apps/api/tauri";
 
 const games = ref(gamesData);
+
+async function update_entry(name: string) {
+    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+    await invoke("update_entry", { entry_name: name });
+}
 </script>
