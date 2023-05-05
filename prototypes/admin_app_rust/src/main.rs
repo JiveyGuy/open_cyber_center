@@ -67,7 +67,6 @@ async fn main() -> std::io::Result<()> {
     //     println!("{}", entry.name);
     // }
     
-    //let vec_cursor = vec![1, 2, 3];
     let mut buffer_string = String::new();
     buffer_string.push('[');
     
@@ -85,51 +84,6 @@ async fn main() -> std::io::Result<()> {
     file.write_all(buffer_string.as_bytes())?;
     Ok(())
 
-   
-
-
-
     
-
-
-    
-    // instead of just the name - take name, id... etc and put into vector ^^^ above struc -- 
-    // using the tutorial jason sent in discord 
-    
-    // use two string example
-    // print out to make sure everything is working correctly 
-    // figure out how to save file in rust 
-
 
 }
-
-
-
-
-    // read in all games from mongo
-
-    // save in games.json with format similiar to the one in main_project/occ
-
-    // [
-    //  { 
-    //         "id": 0,
-    //         "name": "Apex Legends",
-    //         "description": "A battle royale shooter game where competitors battle for glory, fame, and fortune.",
-    //         "year": "2019",
-    //         "rating": "blank",
-    //         "video_url": "blank",
-    //         "img_url": "/src/assets/large_files/imgs/posters/apex-legends-poster2.jpg"
-    //     },
-    //     { 
-    //         "id": 1,
-    //         "name": "CS: GO",
-    //         "description": "A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
-    //         "year": "2012",
-    //         "rating": "blank",
-    //         "video_url": "blank",
-    //         "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"
-    //     }
-    // ]
-
-    // reference code in test_functions in prototypes
-
