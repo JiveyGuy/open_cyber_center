@@ -17,7 +17,9 @@
             "year": "2012",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg",
+            "exe_url": "temp"
+            
         },
 		{ 
             "id": 2,
@@ -26,7 +28,8 @@
             "year": "2015",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg",
+            "exe_url": "temp"
         },
 		{
             "id": 3, 
@@ -35,6 +38,7 @@
             "year": "2023",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg",
+            "exe_url": "temp"
         }
 ]
