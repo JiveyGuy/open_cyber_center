@@ -5,6 +5,8 @@ use tauri::{Manager};
 use std::process::Command;
 use std::{fs, thread, time::Duration, path::Path};
 
+
+
 #[macro_use]
 extern crate fstrings;
 
@@ -104,6 +106,7 @@ async fn close_splash (window: tauri::Window) -> bool{
 
 fn main()
 {
+
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![close_splash])
         .run(tauri::generate_context!())
