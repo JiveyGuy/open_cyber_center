@@ -2,8 +2,8 @@
   import { ref } from "vue";
   import VideoBackground from 'vue-responsive-video-background-player'
 
-  import start_video from '../assets/start_video.mp4';
-  import start_music from '../assets/start_music.mp3';
+  import start_video from '../assets/large_files/vids/start_video.mp4';
+  import start_music from '../assets/large_files/music/start_music.mp3';
   let music_obj = new Audio(start_music);
   music_obj.loop = true;
   music_obj.play();

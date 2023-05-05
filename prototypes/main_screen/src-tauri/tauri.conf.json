@@ -5,7 +5,7 @@
     "devPath": "http://localhost:1420",
     "distDir": [
       "../",
-      "main_project/occ/index.html"
+      "../index.html"
     ],
     "withGlobalTauri": false
   },

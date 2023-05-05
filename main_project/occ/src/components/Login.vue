@@ -5,7 +5,7 @@
   import VideoBackground from 'vue-responsive-video-background-player';
   import { decodeCredential } from "vue3-google-login";
   import type { CallbackTypes } from "vue3-google-login";
-  import login_video from '../assets/login_video.mp4';
+  import login_video from '../assets/large_files/vids/login_video.mp4';
   const emits = defineEmits<{(id: 'login'): void}>();
 
   

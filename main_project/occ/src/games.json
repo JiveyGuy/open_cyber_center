@@ -6,7 +6,7 @@
             "year": "2019",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/images/apex-legends-poster2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/apex-legends-poster2.jpg"
         },
         { 
             "id": 1,
@@ -15,7 +15,7 @@
             "year": "2012",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/images/csgo-poster-2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"
         },
 		{ 
             "id": 2,
@@ -24,7 +24,7 @@
             "year": "2015",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/images/fallout4-poster2.jpg"
+            "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg"
         },
 		{
             "id": 3, 
@@ -33,60 +33,6 @@
             "year": "2023",
             "rating": "blank",
             "video_url": "blank",
-            "img_url": "/src/assets/images/hogwarts-legacy-poster.jpg"
-        },
-		{
-            "id": 4, 
-            "name": "Overwatch 2",
-            "description": "A team-based action game set in the future where players battle in 5 vs. 5 teams.",
-            "year": "2022",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/overwatch2-poster-2.jpg"
-        },
-		{
-            "id": 5,
-            "name": "Roblox",
-            "description": "An interactive gaming universe that lets players create, share experiences with friends and do anything they can imagine.",
-            "year": "2006",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/roblox-poster.jpg"
-        },
-		{
-            "id": 6, 
-            "name": "Rocket League",
-            "description": "A hybrid game that combines arcade-style soccer and vehicular derby.",
-            "year": "2015",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/rocket-league-poster2.jpg"
-        },
-		{
-            "id": 7, 
-            "name": "Smite",
-            "description": "A third-person multiplayer online battle arena game.",
-            "year": "2014",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/smite-poster2.jpg"
-        },
-		{
-            "id": 8, 
-            "name": "Valorant",
-            "description": "A 5 vs. 5 character-based tactical first person shooter game.",
-            "year": "2020",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/valorant-poster.jpg"
-        },
-		{
-            "id": 9, 
-            "name": "World of Warcraft",
-            "description": "A MMORPG set in the magical world of Azeroth.",
-            "year": "2004",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/images/wrld-o-wrcrft-poster2.jpg"
-    }
+            "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg"
+        }
 ]
