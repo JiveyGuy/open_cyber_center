@@ -55,9 +55,10 @@
           <input class = "py-3 rounded-sm text-white bg-neutral-700" v-model="game.exe_url" type="text" />
         </div>
         
-        <div class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 " type="button" @click="update_entry(game.id, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)">
-          <button class="text-white" >UPDATE</button>
-        </div>
+        <!-- Fix this connection to main.rs so that when update_entry is called it prints the info. -->
+        <button class=" rounded-lg h-fit w-fit bg-green-800 px-1 py-1 " @click="update_entry(game.id, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)" type="submit">
+          <div class="text-white" >UPDATE</div>
+        </button>
         
 
       </div>
@@ -72,6 +73,10 @@ import { invoke } from "@tauri-apps/api/tauri";
 
 const games = ref(gamesData);
 
+function hello_world(){
+  console.log("hello world!")
+}
+// @click="update_entry(game.id, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)""
 async function update_entry(id: number, name: string, description: string, year: string, rating: string, video_url: string, img_url: string, exe_url: string) {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
   await invoke("update_entry", { id: id, name: name, description: description, year: year, rating: rating, video_url: video_url, img_url: img_url, exe_url: exe_url });
