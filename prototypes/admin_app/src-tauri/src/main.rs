@@ -3,7 +3,7 @@ use std::{env, vec};
 use bson::oid::ObjectId;
 // use futures::{TryStreamExt};
 use serde::{Deserialize, Serialize};
-use mongodb::{options::{ClientOptions, ResolverConfig}};
+// use mongodb::{options::{ClientOptions, ResolverConfig}};
 
 #[derive(Serialize, Deserialize, Debug)]
 struct GameStruct {
@@ -18,7 +18,7 @@ struct GameStruct {
 }
 
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+// #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -33,8 +33,7 @@ fn update_entry(_id: i16, name: &str, description: &str, year: &str, rating: &st
     
 
      // Load the MongoDB connection string from an environment variable:
-     let client_uri =
-     env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
+    //  let client_uri = env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
 
  // A Client is needed to connect to MongoDB:
  // An extra line of code to work around a DNS issue on Windows:
