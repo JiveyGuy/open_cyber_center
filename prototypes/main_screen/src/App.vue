@@ -7,7 +7,7 @@
   import { ref } from 'vue';
   import Loading from "./components/Loading.vue";
   import StartScreen from "./components/StartScreen.vue";
-  import Login from "./components/Login.vue";
+  // import Login from "./components/Login.vue";
 
   // default payload, may make gdrive version
   const should_show = ref(false);
@@ -33,13 +33,13 @@
     <div v-else>
       <transition name="fade">
   
-        <div v-if="!isLoggedIn">         
+        <!-- <div v-if="!isLoggedIn">         
           <Login @login="isLoggedIn = true" />
-        </div> 
+        </div>  -->
 
-        <div v-else>
+        <!-- <div v-else> -->
           <MainPage @gg="handleGG"/>
-        </div>
+        <!-- </div> -->
 
       </transition>
     </div>
