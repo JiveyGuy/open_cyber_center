@@ -22,7 +22,7 @@
   }
 
   let isLoggedIn = ref(false);
-  let isStarted = ref(false);
+  let isStarted  = ref(false);
 </script>
 
 <template>

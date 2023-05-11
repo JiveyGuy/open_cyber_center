@@ -77,6 +77,6 @@ const games = ref(gamesData);
 
 async function update_entry(_id: number, name: string, description: string, year: string, rating: string, video_url: string, img_url: string, exe_url: string) {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  await invoke("update_entry", { id: _id, name: name, description: description, year: year, rating: rating, video_url: video_url, img_url: img_url, exe_url: exe_url });
+  await invoke("update_entry", { id: _id, name: name, description: description, year: year, rating: rating, videoUrl: video_url, imgUrl: img_url, exeUrl: exe_url });
 }
 </script>

@@ -9,12 +9,12 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "main_screen",
+    "productName": "open_cyber_center",
     "version": "0.0.0"
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "all": true,
       "shell": {
         "all": false,
         "open": true
