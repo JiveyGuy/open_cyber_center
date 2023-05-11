@@ -8,7 +8,7 @@ impl EventHandler for Handler {}
 
 #[tokio::main]
 async fn main() {
-    let token = "MTA5MzI0NzUzOTEyNzUyOTU0Mg.G72WdN.AaSODhoa1TPRh9I02f-klk78Irw3Oh6YXvFNZ4";  // Replace with the your Bot Token
+    let token = "Your_bot_token ";  // Replace with the your Bot Token
     let http = Http::new_with_token(&token);
 
     let guild_id = GuildId(705287712718061639); // Replace with the ID of your server
