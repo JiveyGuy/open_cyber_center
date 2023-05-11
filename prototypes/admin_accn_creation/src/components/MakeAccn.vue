@@ -1,0 +1,102 @@
+<template>
+  <div class="bg-gray-900 text-white min-h-screen min-w-full">
+    <div class="container mx-auto py-10 min-w-full">
+      <h2 class="text-3xl font-bold mb-4">Admin Dashboard</h2>
+      <div class="flex">
+        <div class="w-fit w-min-full pr-10">
+          <div v-if="users.length > 0">
+            <div>
+              <h3 class="text-xl font-bold mb-2">Users</h3>
+              <div class="grid grid-cols-12 gap-4">
+                <div v-for="user in users" :key="user.id" class="flex flex-col items-center">
+                  <img src="../assets/vue.svg" alt="User Image" class="w-24 h-24 mb-2 rounded-full">
+                  <span>{{ user.name }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button @click="fetchUsers" class="px-4 py-2 rounded bg-blue-500 text-white">Reload Users</button>
+          </div>
+          <div v-if="errorMessage" class="text-red-500">{{ errorMessage }}</div>
+        </div>
+
+        <div class="w-fit w-min-full pl-10">
+          <div class="mt-4">
+            <h3 class="text-xl font-bold mb-2">Add User</h3>
+            <input v-model="newUserName" type="text" placeholder="User Name" class="mr-2 p-2 rounded border border-gray-300">
+            <button @click="addUser" class="px-4 py-2 mt-3 rounded bg-blue-500 text-white">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import { invoke } from '@tauri-apps/api/tauri';
+
+interface User {
+  id: number;
+  name: string;
+}
+
+export default defineComponent({
+  name: 'AdminDashboard',
+  setup() {
+
+    function delay(ms: number) {
+      return new Promise( resolve => setTimeout(resolve, ms) );
+    }
+
+    const users = ref<User[]>([]);
+    const errorMessage = ref('');
+
+    const newUserName = ref('');
+
+    const fetchUsers = async () => {
+      try {
+        const response = await invoke<string[]>('get_users'); // Invoke Rust command to get users
+        users.value = response.map((name, index) => ({ id: index + 1, name }));
+      } catch (error) {
+        errorMessage.value = 'Failed to fetch users.';
+        console.error(error);
+      }
+    };
+
+    const addUser = async () => {
+      try {
+        if (newUserName.value) {
+          await invoke('add_user', { name: newUserName.value }); // Invoke Rust command to add a user
+          newUserName.value = '';
+          await delay(5000);
+          await fetchUsers(); // Refresh the list of users
+        }
+      } catch (error) {
+        errorMessage.value = 'Failed to add user.';
+        console.error(error);
+      }
+    };
+
+    fetchUsers();
+
+    return {
+      users,
+      newUserName,
+      addUser,
+      fetchUsers,
+      errorMessage,
+    };
+  },
+});
+</script>
+
+<style>
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+</style>
