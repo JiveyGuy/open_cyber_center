@@ -18,7 +18,6 @@ struct Payload
   message: String,
 }
 
-
 // Global vars
 static mut data_path: &str = "";
 
@@ -60,41 +59,41 @@ fn mv_and_unzip(loc_start: &str, loc_end: &str)
         .expect("Failed to run command.");
 }
 
+// add arg for string and replace ./data
 fn download_all() -> bool
 {   
     // check if data folder exists
-    // if Path::new("./data").is_dir() == true 
-    // {   
-    //     println!("./data does exist");
-    //     // check if large_files folder !exists
-    //     if Path::new("./data/large_files").is_dir() != true 
-    //     { // TODO add check for file version
-    //         println!("but large files doesn't exist");
-    //         update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", "tmp.zip");
-    //         println!("Download, done!");
-    //         mv_and_unzip("tmp.zip", "./data");
-    //     }
-    // } 
-    // else
-    // {
-    //     println!("./data doesn't exist");
-    //     fs::create_dir("./data").expect("failed to make .data dir");
-    //     update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", ".\\data\\tmp.zip");
-    //     println!("Download, done!");
-    //     mv_and_unzip("./data/tmp.zip", "./data/large_files");
-    // }
+    if Path::new("./data").is_dir() == true 
+    {   
+        println!("./data does exist");
+        // check if large_files folder !exists
+        if Path::new("./data/large_files").is_dir() != true 
+        { // TODO add check for file version
+            println!("but large files doesn't exist");
+            update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", "tmp.zip");
+            println!("Download, done!");
+            mv_and_unzip("tmp.zip", "./data");
+        }
+    } 
+    else
+    {
+        println!("./data doesn't exist");
+        fs::create_dir("./data").expect("failed to make .data dir");
+        update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", ".\\data\\tmp.zip");
+        println!("Download, done!");
+        mv_and_unzip("./data/tmp.zip", "./data/large_files");
+    }
     
-    // // change to src/assets for build
-    // println!("{}", f!("download_all ran, returning true"));
+    // change to src/assets for build
+    println!("{}", f!("download_all ran, returning true"));
 
     return true;
 }
 
 
 // ============ COMMANDS EXPOSED
-
 #[tauri::command(async)]
-async fn close_splash (window: tauri::Window) -> bool{
+async fn close_splash (window: tauri::Window) -> bool{ // add arg for app handle
   
     thread::sleep(Duration::from_secs(3));
     if let Some(splash) = window.get_window("splash_window")
@@ -109,7 +108,20 @@ async fn close_splash (window: tauri::Window) -> bool{
     }
 
     println!("{}", f!("close_splash ran, starting downloads"));
-    return download_all();
+
+    // Impliment simong changes to find temp path
+
+    // let temp_data_dir = app.path_resolver()
+    //         .app_local_data_dir()
+    //         .expect("failed to resolve resource dir")
+    //         .as_os_str()
+    //         .to_str()
+    //         .unwrap();
+
+    // after getting temp_data_dir print it
+//     &str not String
+// println!("{}", f!("Temp_data_dir = {temp_data_dir}"));
+    return download_all(); //change to accept &str arg for path
 }
 
 #[tauri::command]
