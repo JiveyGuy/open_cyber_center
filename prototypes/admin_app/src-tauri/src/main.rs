@@ -2,16 +2,13 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::{env, vec};
-use bson::{doc};
-use bson::oid::ObjectId;
+use bson::{doc, oid::ObjectId};
 use futures::{TryStreamExt};
 use serde::{Deserialize, Serialize};
 use serde_json;
 use mongodb::{options::{ClientOptions, ResolverConfig}};
 use std::fs::File;
 use std::io::prelude::*;
-
-use mongodb::options::FindOptions;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct GameStruct 
@@ -54,32 +51,31 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
     //println!("User id = {}", id);
 
      // Create a cursor to search for the game ID
-     let collection = db.collection("GameList");
-     let filter = doc! { "_id": { "$oid": id } };
-     let options = FindOptions::builder().limit(1).build();
-     let cursor = collection._id;
-     
-     // Iterate over the cursor results
-     let mut count = 0;
-     let vec_cursor: Vec<GameStruct> = cursor
-        .await
-        .expect("Failed to get game struct")
-        .try_collect().await.unwrap_or_else(|_| vec![]); 
+     let collection = db.collection::<GameStruct>("GameList");
+     let filter = doc! { "_id": id };
+     let update = doc! { "$set" : {
+            "name": name,
+            "description": description,
+            "year": year,
+            "rating": rating,
+            "video_url": video_url,
+            "img_url": img_url,
+            "exe_url": exe_url,
+        }
+      };
 
-     
-     for result in vec_cursor {
-        
-        let game = result; 
-
-        // Process the game document here
-        println!("Game: {:?}", game);
-        count += 1;
-    }
-    
-    if count == 0 {
-        println!("No game found with ID: {}", id);
-    }
-    
+     match collection
+        .find_one_and_update(filter, update, None).await{
+            Ok(res) => {
+                // println!("{}", res);
+                println!("Updated one");
+            },
+            Err(e) => {
+                println!("{}", e);
+                println!("Error");
+            }      
+        }
+   
     return Ok(format!("Ok"));
 }
     
