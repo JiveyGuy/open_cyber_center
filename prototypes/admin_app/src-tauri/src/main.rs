@@ -14,13 +14,20 @@ use std::io::prelude::*;
 struct GameStruct 
 {
     #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
-    id: Option<ObjectId>,
+    _id: Option<ObjectId>,
     name: String,
     description: String,
     year: String,
     rating: String,
     video_url: String,
     img_url: String,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+struct FilterOnIdStruct 
+{
+    #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
+    _id: Option<ObjectId>,
 }
 
 async fn get_mongo_handle() -> mongodb::Database
@@ -53,12 +60,15 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
 
      // Create a cursor to search for the game ID
      let collection = db.collection::<GameStruct>("GameList");
-     let oid1 = ObjectId::from_str(id)?;
+     //  let oid1 = ObjectId::from_str(id)?; //same as o in the 
+
+     let filter_struct = FilterOnIdStruct{ 
+        _id: Some(ObjectId::parse_str(id).expect("Failed to parse as object ID!"))
+     };
 
 
-     
-     println!("Object id = {}", oid1); //todo
-     let filter = doc! { "_id": { oid1 } };
+    //  println!("Object id = {}", ); //todo
+     let filter = doc! { "_id": filter_struct._id };
      let update = doc! { "$set" : {
             "name": name,
             "description": description,

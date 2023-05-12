@@ -38,11 +38,9 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "fullscreen": true,
         "resizable": true,
-        "title": "admin_app",
-        "width": 800,
-        "height": 1200
+        "title": "admin_app"
       }
     ]
   }

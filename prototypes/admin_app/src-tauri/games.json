@@ -1,10 +1,10 @@
 [
 
 {"_id":{"$oid":"64372e639a9c13d50c6fc477"},
-	"name":"CS: GO",
+	"name":"CS: NO",
 	"description":"A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
 	"year":"2012",
-	"rating":"blank",
+	"rating":"blankwe",
 	"video_url":"blank",
 	"img_url":"/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"}, 
 

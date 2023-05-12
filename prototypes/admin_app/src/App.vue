@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto bg-black border border-gray-800 p-4 ">
+  <div class="w-full h-full mx-auto bg-black border-gray-800 p-4 ">
   <div class="flex text-white justify-center">
     OPEN CYBER CENTER ADMIN EDITOR
   </div>
@@ -12,18 +12,15 @@
         :key="game._id.$oid"
         class="rounded shadow bg-slate-500 "
       >
-      <div class = "h-48">
-        <img :src="game.img_url" :alt="game.name" class="w-full h-full object-cover mb-4 rounded" />
-      </div>
+      
         <h2 class="text-2xl mb-4">{{ game.name }}</h2>
         <p class="mb-4">{{ game.description }}</p>
         <!-- <input v-model="game.year" type="text" class="mb-4" /> -->
         <!-- input v-model="game.rating" type="text" class="mb-4" /> -->
         
         <!-- add for every item in .json  -->
-
-        <div class = "grid grid-cols-2 gap-4">
-          
+        <div class=" grid grid-cols-2"> 
+        <div class = " row-span-6">
           <div class = "text-white text-slate-900">Name:
             <input class = "py-2 rounded-sm text-white bg-neutral-700" v-model="game.name" type="text" />
           </div>
@@ -56,13 +53,18 @@
             <button class="text-white" >UPDATE</button>
           </div>
 
+        
+          <div class = "col-start-3 h-fit row-span-4">
+            <img :src="game.img_url" :alt="game.name" class="w-full h-full object-cover mb-4 rounded" />
+          </div>
+        </div>
+      </div>
         </div>
         
         
         
       </div>
     </div>
-  </div>
 
 
   
