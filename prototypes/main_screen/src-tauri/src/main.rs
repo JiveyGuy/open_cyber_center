@@ -4,6 +4,7 @@
 use tauri::{Manager, State};
 use std::process::Command;
 use std::{fs, thread, time::Duration, path::Path};
+use std::path::PathBuf;
 
 #[macro_use]
 extern crate fstrings;
@@ -18,8 +19,6 @@ struct Payload
   message: String,
 }
 
-// Global vars
-static mut data_path: &str = "";
 
 // Input: gid, out path including fiel name
 fn update_local_resources(g_id: &str, out_str: &str)
@@ -59,29 +58,38 @@ fn mv_and_unzip(loc_start: &str, loc_end: &str)
         .expect("Failed to run command.");
 }
 
+// ================== ./data bad need to call rust stuff like discord message
 // add arg for string and replace ./data
-fn download_all() -> bool
+fn download_all(app: tauri::AppHandle) -> bool
 {   
+    let download_path = app
+        .path_resolver()
+        .app_local_data_dir()
+        .expect("failed to resolve resource dir")
+        .as_os_str()
+        .to_str()
+        .unwrap();
+
     // check if data folder exists
-    if Path::new("./data").is_dir() == true 
+    if Path::new(download_path).is_dir() == true 
     {   
-        println!("./data does exist");
+        println!("{}", f!("{download_path} path does exist"));
         // check if large_files folder !exists
-        if Path::new("./data/large_files").is_dir() != true 
+        if Path::new("./TODO/large_files").is_dir() != true 
         { // TODO add check for file version
             println!("but large files doesn't exist");
             update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", "tmp.zip");
             println!("Download, done!");
-            mv_and_unzip("tmp.zip", "./data");
+            mv_and_unzip("tmp.zip", "./TODO");
         }
     } 
     else
     {
-        println!("./data doesn't exist");
-        fs::create_dir("./data").expect("failed to make .data dir");
-        update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", ".\\data\\tmp.zip");
+        println!("TODO doesn't exist");
+        fs::create_dir("TODO").expect("failed to make TODO dir");
+        update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", ".\\TODO\\tmp.zip");
         println!("Download, done!");
-        mv_and_unzip("./data/tmp.zip", "./data/large_files");
+        mv_and_unzip("./TODO/tmp.zip", "./TODO/large_files");
     }
     
     // change to src/assets for build

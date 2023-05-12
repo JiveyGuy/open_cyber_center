@@ -37,6 +37,23 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { invoke } from '@tauri-apps/api/tauri';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import 'firebase/auth';
+import local_key from '../local_env.json';
+
+const firebaseConfig = {
+  apiKey: local_key.apiKey,
+  authDomain: local_key.authDomain,
+  projectId: local_key.projectId,
+  storageBucket: local_key.storageBucket,
+  messagingSenderId: local_key.messagingSenderId,
+  appId: local_key.appId,
+  measurementId: local_key.measurementId
+};
+
+const fire_app = initializeApp(firebaseConfig);
+const auth = getAuth();
 
 interface User {
   id: number;
