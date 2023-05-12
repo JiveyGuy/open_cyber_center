@@ -1,9 +1,0 @@
-C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\unicode_segmentation-67c6258148d87cd0.rmeta: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\grapheme.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\sentence.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\word.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\tables.rs
-
-C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\unicode_segmentation-67c6258148d87cd0.d: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\grapheme.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\sentence.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\word.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\tables.rs
-
-C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\lib.rs:
-C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\grapheme.rs:
-C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\sentence.rs:
-C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\word.rs:
-C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\unicode-segmentation-1.10.1\src\tables.rs:

@@ -79,12 +79,15 @@
       >
       <div v-for="game in games" :key="game.id">
         <button @click="handle_click(game.exe_url)" type="submit">
-          <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
+          <div class="carousel-item flex-none w-40 h-40 px-2 py-1 shadow-sm">
             <!-- TODO ref data dir -->
             <img :src="game.img_url" :alt="game.name" class="rounded-3xl " />
           </div>
-          <div class = "animate-pulse m-10 bg-gradient-to-r from-green-700 to-purple-600 rounded-sm opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt">
-            {{ game.name }}
+          <div class = " py-4 m-4  ">
+            <!-- <div class="animate-pulse bg-gradient-to-r from-green-700 to-purple-600 opacity-5 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"> -->
+              {{ game.name }}
+            <!-- </div> -->
+            
           </div>
         </button>
           

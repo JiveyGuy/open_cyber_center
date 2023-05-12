@@ -34,7 +34,7 @@
       <transition name="fade">
   
         <div v-if="!isLoggedIn">         
-          <Login @login="isLoggedIn = true" />
+          <Login @login-success="isLoggedIn = true" />
         </div> 
 
         <div v-else>
