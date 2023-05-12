@@ -70,6 +70,8 @@ fn download_all(app: tauri::AppHandle) -> bool
         .to_str()
         .unwrap();
 
+    println!("{}", f!("{download_path} Is the path windows gave us for download_path"));
+
     // check if data folder exists
     if Path::new(download_path).is_dir() == true 
     {   
