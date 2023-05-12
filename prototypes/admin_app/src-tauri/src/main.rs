@@ -54,7 +54,10 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
      // Create a cursor to search for the game ID
      let collection = db.collection::<GameStruct>("GameList");
      let oid1 = ObjectId::from_str(id)?;
-     println!("Object id = {}", oid1);
+
+
+     
+     println!("Object id = {}", oid1); //todo
      let filter = doc! { "_id": { oid1 } };
      let update = doc! { "$set" : {
             "name": name,
