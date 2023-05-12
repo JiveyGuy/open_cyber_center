@@ -73,12 +73,12 @@
 </script>
 
 <template>
-<div class="w-full h-full bg-purple-900" style="height: calc(100%); overflow: scroll;">
+<div class="w-full h-full bg-purple-900">
   <div class="">
     <div class="grid-container " >
       <div class="grid grid-cols-12 gap-0 grid-rows-8 " >
           
-        <div class="col-start-1 row-span-6 row-start-1 col-span-2 m-4">
+        <div class="col-start-1 row-span-6 row-start-1 col-span-2">
           <TopBar @live="showLivePage"
                   @tier="showTierPage"
                   @play="showPlayPage"
@@ -123,12 +123,7 @@
             <div class="text-amber-500">
               Recommended
               <GameCarousel/>
-              New
-              <GameCarousel/>
-              Yours
-              <GameCarousel/>
-              Old
-              <GameCarousel/>
+          
             </div>
           </div>
          

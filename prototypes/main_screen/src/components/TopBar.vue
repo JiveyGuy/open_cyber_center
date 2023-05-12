@@ -50,23 +50,23 @@
 <template>
 
 
-    <div class="flex flex-col h-screen justify-start bg-gray-900 relative text-Foreground rounded-br-xl rounded-t-xl text-lg">   
+    <div class="flex flex-col h-screen bg-gray-900 text-Foreground rounded-br-xl rounded-tr-2xl  text-lg">   
       <div>
 
-      <div class="mx-auto my-1 h-[128px] w-[128px] ">
+      <div class="mx-auto my-auto h-[128px] w-[128px] ">
         <div>
           <img src='../assets/Square310x310Logo.png' />
         </div>
         
       </div>
 
-        <div class="flex flex-col items-center mx-auto my-auto ">
+        <!-- <div class=" mx-auto my-auto "> -->
           <div>
             <ProfileView/>
           </div>
 
           <button @click="handle_home" type="submit">
-            <div class="mx-auto my-auto flex flex-row items-center cursor-pointer">
+            <div class="flex flex-row items-center cursor-pointer">
               <HomeOutline fillColor="#f8f8f2" :size="20" />
               <div class="mx-1 my-3 items-center">
                 HOME
@@ -123,5 +123,5 @@
 
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 </template>
