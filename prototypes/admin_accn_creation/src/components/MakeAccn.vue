@@ -41,6 +41,32 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import 'firebase/auth';
 import local_key from '../local_env.json';
+import * as admin from 'firebase-admin';
+
+// Initialize Firebase Admin SDK
+admin.initializeApp({
+  // Add your Firebase project credentials here
+  credential: admin.credential.cert('../occ-firebase-login-aa426-firebase-adminsdk-uop0d-a078737b95.json'),
+});
+
+// Get a reference to the Firebase Auth service
+const myAuth = admin.auth();
+
+// Retrieve a list of all users
+async function getUsers() {
+  let nextPageToken: string | undefined = undefined;
+  let allUsers: admin.auth.UserRecord[] = [];
+
+  do {
+    const result:any = await myAuth.listUsers(1000, nextPageToken);
+    const users = result.users;
+    allUsers = allUsers.concat(users);
+    nextPageToken = result.pageToken;
+  } while (nextPageToken);
+
+  console.log(`Retrieved ${allUsers.length} users:`);
+  console.log(allUsers);
+}
 
 const firebaseConfig = {
   apiKey: local_key.apiKey,
@@ -54,7 +80,6 @@ const firebaseConfig = {
 
 const fire_app = initializeApp(firebaseConfig);
 const auth = getAuth();
-
 interface User {
   id: number;
   name: string;
@@ -67,7 +92,19 @@ export default defineComponent({
     function delay(ms: number) {
       return new Promise( resolve => setTimeout(resolve, ms) );
     }
-    // setup firebade connection like in firebase_login_jivey
+    // setup firebase connection like in firebase_login_jivey
+    
+    function searchUsers(action) {
+      const database = firebase.database();
+
+    }
+
+    const query = ref.orderByChild('username');
+    query.forEach(function(child) {
+      console.log(child.key, child.val().username);
+    })
+
+
     const users = ref<User[]>([]);
     const errorMessage = ref('');
 

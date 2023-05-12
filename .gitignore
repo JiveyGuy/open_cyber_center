@@ -43,3 +43,5 @@ dist-ssr
 .target
 .public/images/*
 .public/videos/*
+prototypes/firebase_login/src-tauri/target/debug/deps/libwindows-461db3615db0ad44.rlib
+prototypes/firebase_login/src-tauri/target/debug/deps/libwindows-461db3615db0ad44.rmeta

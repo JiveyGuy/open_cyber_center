@@ -1,0 +1,5 @@
+cargo:rustc-cfg=dev
+cargo:rustc-cfg=desktop
+cargo:rustc-cfg=shell_open
+cargo:rustc-cfg=shell_any
+cargo:rustc-cfg=shell_scope

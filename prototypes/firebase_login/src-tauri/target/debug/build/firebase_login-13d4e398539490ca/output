@@ -1,0 +1,18 @@
+cargo:rerun-if-env-changed=TAURI_CONFIG
+cargo:rerun-if-changed=tauri.conf.json
+cargo:rustc-cfg=desktop
+cargo:rustc-cfg=dev
+package.metadata does not exist
+"C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.22000.0\\x64\\rc.exe"
+Selected RC path: 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\rc.exe'
+RC Output:
+Microsoft (R) Windows (R) Resource Compiler Version 10.0.10011.16384
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+------
+RC Error:
+
+------
+cargo:rustc-link-search=native=C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\build\firebase_login-13d4e398539490ca\out
+cargo:rustc-link-lib=dylib=resource

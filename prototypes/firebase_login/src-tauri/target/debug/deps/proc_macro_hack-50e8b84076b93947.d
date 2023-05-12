@@ -1,0 +1,9 @@
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\proc_macro_hack-50e8b84076b93947.dll: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\quote.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\iter.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\parse.rs
+
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\proc_macro_hack-50e8b84076b93947.d: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\quote.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\iter.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\parse.rs
+
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\lib.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\quote.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\error.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\iter.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\proc-macro-hack-0.5.20+deprecated\src\parse.rs:
