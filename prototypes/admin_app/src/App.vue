@@ -9,7 +9,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg: grid-cols-3 gap-6">
       <div
         v-for="game in games"
-        :key="game.id"
+        :key="game._id.$oid"
         class="rounded shadow bg-slate-500 "
       >
       <div class = "h-48">
@@ -52,7 +52,7 @@
             <input class = "py-2 rounded-sm text-white bg-neutral-700" v-model="game.exe_url" type="text" />
           </div>
 
-          <div class=" rounded-lg h-fit w-fit justify-end bg-green-800 px-1 py-1 transition-all duration-200 transform hover:scale-105 " type="button" @click="update_entry(game.id, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)">
+          <div class=" rounded-lg h-fit w-fit justify-end bg-green-800 px-1 py-1 transition-all duration-200 transform hover:scale-105 " type="button" @click="update_entry(game._id.$oid, game.name, game.description, game.year, game.rating, game.video_url, game.img_url, game.exe_url)">
             <button class="text-white" >UPDATE</button>
           </div>
 
@@ -75,7 +75,7 @@ import { invoke } from "@tauri-apps/api/tauri";
 
 const games = ref(gamesData);
 
-async function update_entry(_id: number, name: string, description: string, year: string, rating: string, video_url: string, img_url: string, exe_url: string) {
+async function update_entry(_id: string, name: string, description: string, year: string, rating: string, video_url: string, img_url: string, exe_url: string) {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
   await invoke("update_entry", { id: _id, name: name, description: description, year: year, rating: rating, videoUrl: video_url, imgUrl: img_url, exeUrl: exe_url });
 }

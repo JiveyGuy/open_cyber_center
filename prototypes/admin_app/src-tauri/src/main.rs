@@ -23,7 +23,7 @@ struct GameStruct
     img_url: String,
 }
 
-fn get_mongo_handle() -> mongodb::Database
+async fn get_mongo_handle() -> mongodb::Database
 {
     // Load the MongoDB connection string from an environment variable:
     let client_uri: String = env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
@@ -41,10 +41,10 @@ fn get_mongo_handle() -> mongodb::Database
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command(async)]
-async fn update_entry(id: i16, name: &str, description: &str, year: &str, rating: &str, video_url: &str, img_url: &str, exe_url: &str) -> Result<String, ()> 
+async fn update_entry(id: &str, name: &str, description: &str, year: &str, rating: &str, video_url: &str, img_url: &str, exe_url: &str) -> Result<String, ()> 
 {
     // connect to mongo
-    let db = get_mongo_handle();
+    let db: mongodb::Database = get_mongo_handle().await;
 
     // search mongo db with cursor for game ID
     // find with pattern in mongo for matching id
@@ -53,7 +53,8 @@ async fn update_entry(id: i16, name: &str, description: &str, year: &str, rating
     //  Make sure it only matches 1 game 
 
     // Change info to name: &str, description: &str, year: &str, rating: &str, video_url: &str, img_url: &str, exe_url: &str
-    // push to mongo
+    
+    // push to mongo (using some db.function)
 
     // make sure to sleep like 1 sec
     // write_games_json("./games.json").await.expect("Failed.");
@@ -62,7 +63,7 @@ async fn update_entry(id: i16, name: &str, description: &str, year: &str, rating
 
 async fn write_games_json(path_to_save:&str) -> std::io::Result<()> 
 {
-    let db: mongodb::Database = get_mongo_handle();
+    let db: mongodb::Database = get_mongo_handle().await;
 
     let games: mongodb::Collection<GameStruct> = db.collection::<GameStruct>("GameList");
     let cursor: mongodb::Cursor<GameStruct> = games.find(None, None).await.expect("error");
