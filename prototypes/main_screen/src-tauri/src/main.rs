@@ -4,7 +4,7 @@
 use tauri::{Manager, State};
 use std::process::Command;
 use std::{fs, thread, time::Duration, path::Path};
-use std::path::PathBuf;
+//use std::path::PathBuf;
 
 #[macro_use]
 extern crate fstrings;
@@ -70,32 +70,34 @@ fn download_all(app: tauri::AppHandle) -> bool
         .to_str()
         .unwrap();
 
-    println!("{}", f!("{download_path} Is the path windows gave us for download_path"));
+    println!("{}", (&f!("{download_path} Is the path windows gave us for download_path")));
 
     // check if data folder exists
     if Path::new(download_path).is_dir() == true 
     {   
-        println!("{}", f!("{download_path} path does exist"));
+        println!("{}", (&f!("{download_path} path does exist")));
+        
         // check if large_files folder !exists
-        if Path::new("./TODO/large_files").is_dir() != true 
-        { // TODO add check for file version
+        if Path::new(&f!("{download_path}/large_files")).is_dir() != true 
+        { 
+            // TODO add check for file version
             println!("but large files doesn't exist");
             update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", "tmp.zip");
             println!("Download, done!");
-            mv_and_unzip("tmp.zip", "./TODO");
+            mv_and_unzip("tmp.zip", &f!("{download_path}"));
         }
     } 
     else
     {
-        println!("TODO doesn't exist");
-        fs::create_dir("TODO").expect("failed to make TODO dir");
-        update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", ".\\TODO\\tmp.zip");
+        println!("{}", &f!("{download_path} doesn't exist"));
+        fs::create_dir(&f!("{download_path}")).expect(&f!("failed to make {download_path} dir"));
+        update_local_resources("1DrhBGl67bjmZA9MiZA2Y11L6Ts_1FN1J", &f!("{download_path}\\tmp.zip"));
         println!("Download, done!");
-        mv_and_unzip("./TODO/tmp.zip", "./TODO/large_files");
+        mv_and_unzip(&f!("{download_path}/tmp.zip"), &f!("{download_path}/large_files"));
     }
     
     // change to src/assets for build
-    println!("{}", f!("download_all ran, returning true"));
+    println!("{}", (&f!("download_all ran, returning true")));
 
     return true;
 }
@@ -103,7 +105,7 @@ fn download_all(app: tauri::AppHandle) -> bool
 
 // ============ COMMANDS EXPOSED
 #[tauri::command(async)]
-async fn close_splash (window: tauri::Window) -> bool{ // add arg for app handle
+async fn close_splash (window: tauri::Window, app: tauri::AppHandle) -> bool{ // add arg for app handle
   
     thread::sleep(Duration::from_secs(3));
     if let Some(splash) = window.get_window("splash_window")
@@ -121,18 +123,13 @@ async fn close_splash (window: tauri::Window) -> bool{ // add arg for app handle
 
     // Impliment simong changes to find temp path
 
-    // let temp_data_dir = app.path_resolver()
-    //         .app_local_data_dir()
-    //         .expect("failed to resolve resource dir")
-    //         .as_os_str()
-    //         .to_str()
-    //         .unwrap();
-
     // after getting temp_data_dir print it
-//     &str not String
-// println!("{}", f!("Temp_data_dir = {temp_data_dir}"));
-    return download_all(); //change to accept &str arg for path
+    //     &str not String
+    // println!("{}", f!("Temp_data_dir = {temp_data_dir}"));
+    return download_all(app); //change to accept &str arg for path
 }
+
+
 
 #[tauri::command]
 fn update_entry(name: &str) {
