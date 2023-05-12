@@ -24,8 +24,8 @@
         <div class="w-fit w-min-full pl-10">
           <div class="mt-4">
             <h3 class="text-xl font-bold mb-2">Add User</h3>
-            <input v-model="newUserName" type="text" placeholder="User Name" class="mr-2 p-2 rounded border border-gray-300">
-            <button @click="addUser" class="px-4 py-2 mt-3 rounded bg-blue-500 text-white">Add</button>
+            <input v-model="newUserName" type="text" placeholder="User Name" class="mr-2 p-2 rounded border border-gray-300 text-slate-700">
+            <button @click="addUser" class="px-4 py-2 mt-3 rounded bg-blue-500 text-slate-900">Add</button>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default defineComponent({
     function delay(ms: number) {
       return new Promise( resolve => setTimeout(resolve, ms) );
     }
-
+    // setup firebade connection like in firebase_login_jivey
     const users = ref<User[]>([]);
     const errorMessage = ref('');
 
@@ -75,7 +75,9 @@ export default defineComponent({
 
     const fetchUsers = async () => {
       try {
-        const response = await invoke<string[]>('get_users'); // Invoke Rust command to get users
+        // const response = await invoke<string[]>('get_users'); // Invoke Rust command to get users
+        // get an array [] of user IDs or name from firebase and pass it to users.value
+
         users.value = response.map((name, index) => ({ id: index + 1, name }));
       } catch (error) {
         errorMessage.value = 'Failed to fetch users.';
@@ -86,7 +88,11 @@ export default defineComponent({
     const addUser = async () => {
       try {
         if (newUserName.value) {
-          await invoke('add_user', { name: newUserName.value }); // Invoke Rust command to add a user
+
+          // Pass newUserName.value to a method that will insert a new username and password
+          //  for this test make the password the same for all const pass = "helloword"
+
+          // await invoke('add_user', { name: newUserName.value }); // Invoke Rust command to add a user
           newUserName.value = '';
           await delay(5000);
           await fetchUsers(); // Refresh the list of users

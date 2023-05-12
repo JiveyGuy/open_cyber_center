@@ -136,6 +136,7 @@ export default defineComponent({
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const { user } = userCredential;
         const { uid, email: userEmail } = user;
+        this.errorMessage = 'Succesfull Login'; 
         this.$emit('login-success', { uid, email: userEmail });
       } catch (error: any) {
         // Handle login error
