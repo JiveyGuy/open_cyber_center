@@ -3,11 +3,11 @@
     <div class="container mx-auto py-10 min-w-full">
       <h2 class="text-3xl font-bold mb-4">Admin Dashboard</h2>
       <div class="flex">
-        <div class="w-fit w-min-full pr-10">
+        <div class="w-1/2 pr-10">
           <div v-if="users.length > 0">
             <div>
               <h3 class="text-xl font-bold mb-2">Users</h3>
-              <div class="grid grid-cols-12 gap-4">
+              <div class="grid grid-cols-3 gap-4">
                 <div v-for="user in users" :key="user.id" class="flex flex-col items-center">
                   <img src="../assets/vue.svg" alt="User Image" class="w-24 h-24 mb-2 rounded-full">
                   <span>{{ user.name }}</span>
@@ -21,7 +21,7 @@
           <div v-if="errorMessage" class="text-red-500">{{ errorMessage }}</div>
         </div>
 
-        <div class="w-fit w-min-full pl-10">
+        <div class="w-1/2 pl-10">
           <div class="mt-4">
             <h3 class="text-xl font-bold mb-2">Add User</h3>
             <input v-model="newUserName" type="text" placeholder="User Name" class="mr-2 p-2 rounded border border-gray-300 text-slate-700">
@@ -41,6 +41,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import 'firebase/auth';
 import local_key from '../local_env.json';
+import { getDatabase, ref as dbRef, onValue } from 'firebase/database';
+
 
 const firebaseConfig = {
   apiKey: local_key.apiKey,
@@ -53,10 +55,12 @@ const firebaseConfig = {
 };
 
 const fire_app = initializeApp(firebaseConfig);
-const auth = getAuth();
+// const auth = getAuth();
+const db = getDatabase();
+
 
 interface User {
-  id: number;
+  id: string;
   name: string;
 }
 
@@ -64,9 +68,9 @@ export default defineComponent({
   name: 'AdminDashboard',
   setup() {
 
-    function delay(ms: number) {
-      return new Promise( resolve => setTimeout(resolve, ms) );
-    }
+    // function delay(ms: number) {
+    //   return new Promise( resolve => setTimeout(resolve, ms) );
+    // }
     // setup firebade connection like in firebase_login_jivey
     const users = ref<User[]>([]);
     const errorMessage = ref('');
@@ -75,13 +79,30 @@ export default defineComponent({
 
     const fetchUsers = async () => {
       try {
-        
+        const usersRef = dbRef(db, 'users');
+        //listener for 'value' event to get the initial user data andy changes
+        onValue(usersRef, (snapshot) => {
+          const usersData = snapshot.val();
+          const usersArray = []; 
+
+          for(const userId in usersData){
+            if(Object.prototype.hasOwnProperty.call(usersData, userId)){
+              const user = {
+                id: userId,
+                name: usersData[userId].name,
+              };
+              usersArray.push(user);
+            }
+          }
+          users.value = usersArray;
+          console.log(usersArray);
+        });    
         // get an array [] of user IDs or name from firebase and pass it to users.value
 
         // Get list of users from firebase 
 
 
-        users.value = [{ id: 1, name: "A" }, { id: 1, name: "A" }, { id: 1, name: "A" }];
+        users.value = [{ id: 1, name: "Adam" }, { id: 1, name: "Amy" }, { id: 1, name: "Ark" }];
       } catch (error) {
         errorMessage.value = 'Failed to fetch users.';
         console.error(error);
