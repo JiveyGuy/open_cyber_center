@@ -46,13 +46,16 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
     // connect to mongo
     let db: mongodb::Database = get_mongo_handle().await;
 
+    
     // search mongo db with cursor for game ID
     // find with pattern in mongo for matching id
     //println!("User id = {}", id);
 
      // Create a cursor to search for the game ID
      let collection = db.collection::<GameStruct>("GameList");
-     let filter = doc! { "_id": id };
+     let oid1 = ObjectId::from_str(id)?;
+     println!("Object id = {}", oid1);
+     let filter = doc! { "_id": { oid1 } };
      let update = doc! { "$set" : {
             "name": name,
             "description": description,
@@ -66,7 +69,7 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
 
      match collection
         .find_one_and_update(filter, update, None).await{
-            Ok(res) => {
+            Ok(_res) => {
                 // println!("{}", res);
                 println!("Updated one");
             },
