@@ -39,6 +39,15 @@ fn get_fire_auth() -> FirebaseLogin
     return auth_info;
 }
 
+// let firebase = Firebase::new("https://myfirebase.firebaseio.com").unwrap().with_params().start_at(1).order_by("name").equal_to(5).finish();
+
+// let users =  firebase.at("users").at("USER_ID")
+//             .get::<HashMap<String, User>>()
+//             .await;
+// let users = users.expect("Failed to get users.");
+// for (key, value) in &users {
+//     println!("{}: {}", key, value.name);
+// }
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command(async)]
@@ -46,15 +55,7 @@ async fn get_users() -> Vec<&'static str>
 {
     let auth_info: FirebaseLogin = get_fire_auth(); 
     let firebase = Firebase::auth(&auth_info.auth_uri, &auth_info.private_key).unwrap().at("users");
-    // let firebase = Firebase::new("https://myfirebase.firebaseio.com").unwrap().with_params().start_at(1).order_by("name").equal_to(5).finish();
-
-    // let users =  firebase.at("users").at("USER_ID")
-    //             .get::<HashMap<String, User>>()
-    //             .await;
-    // let users = users.expect("Failed to get users.");
-    // for (key, value) in &users {
-    //     println!("{}: {}", key, value.name);
-    // }
+    
     let users = firebase
         .get::<HashMap<String, User>>()
         .await
