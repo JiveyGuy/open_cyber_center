@@ -60,12 +60,14 @@ fn mv_and_unzip(loc_start: &str, loc_end: &str)
 
 // ================== ./data bad need to call rust stuff like discord message
 // add arg for string and replace ./data
-fn download_all(app: tauri::AppHandle) -> bool
+async fn download_all(app: tauri::AppHandle) -> bool
 {   
     let download_path = app
         .path_resolver()
         .app_local_data_dir()
-        .expect("failed to resolve resource dir")
+        .expect("failed to resolve resource dir");
+
+    let download_path = download_path
         .as_os_str()
         .to_str()
         .unwrap();
@@ -126,7 +128,7 @@ async fn close_splash (window: tauri::Window, app: tauri::AppHandle) -> bool{ //
     // after getting temp_data_dir print it
     //     &str not String
     // println!("{}", f!("Temp_data_dir = {temp_data_dir}"));
-    return download_all(app); //change to accept &str arg for path
+    return download_all(app).await; //change to accept &str arg for path
 }
 
 
