@@ -1,0 +1,12 @@
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\ignore-324754f14ed57a0a.rmeta: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\default_types.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\dir.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\gitignore.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\overrides.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\pathutil.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\types.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\walk.rs
+
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\ignore-324754f14ed57a0a.d: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\default_types.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\dir.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\gitignore.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\overrides.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\pathutil.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\types.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\walk.rs
+
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\lib.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\default_types.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\dir.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\gitignore.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\overrides.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\pathutil.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\types.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\ignore-0.4.18\src\walk.rs:

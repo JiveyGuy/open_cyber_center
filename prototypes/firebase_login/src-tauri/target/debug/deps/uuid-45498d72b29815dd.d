@@ -1,0 +1,12 @@
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\uuid-45498d72b29815dd.rmeta: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\mod.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\mod.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\prelude.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\adapter\mod.rs
+
+C:\Users\Mike\Documents\CS448_occ\open_cyber_center\prototypes\firebase_login\src-tauri\target\debug\deps\uuid-45498d72b29815dd.d: C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\lib.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\mod.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\mod.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\error.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\prelude.rs C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\adapter\mod.rs
+
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\lib.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\mod.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\builder\error.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\error.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\mod.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\parser\error.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\prelude.rs:
+C:\Users\Mike\.cargo\registry\src\github.com-1ecc6299db9ec823\uuid-0.8.2\src\adapter\mod.rs:
