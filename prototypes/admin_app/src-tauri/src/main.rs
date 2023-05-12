@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::{env, vec};
+use bson::{doc};
 use bson::oid::ObjectId;
 use futures::{TryStreamExt};
 use serde::{Deserialize, Serialize};
@@ -9,6 +10,8 @@ use serde_json;
 use mongodb::{options::{ClientOptions, ResolverConfig}};
 use std::fs::File;
 use std::io::prelude::*;
+
+use mongodb::options::FindOptions;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct GameStruct 
@@ -48,7 +51,38 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
 
     // search mongo db with cursor for game ID
     // find with pattern in mongo for matching id
-    println!("User id = {}", id);
+    //println!("User id = {}", id);
+
+     // Create a cursor to search for the game ID
+     let collection = db.collection("GameList");
+     let filter = doc! { "_id": { "$oid": id } };
+     let options = FindOptions::builder().limit(1).build();
+     let cursor = collection._id;
+     
+     // Iterate over the cursor results
+     let mut count = 0;
+     let vec_cursor: Vec<GameStruct> = cursor
+        .await
+        .expect("Failed to get game struct")
+        .try_collect().await.unwrap_or_else(|_| vec![]); 
+
+     
+     for result in vec_cursor {
+        
+        let game = result; 
+
+        // Process the game document here
+        println!("Game: {:?}", game);
+        count += 1;
+    }
+    
+    if count == 0 {
+        println!("No game found with ID: {}", id);
+    }
+    
+    return Ok(format!("Ok"));
+}
+    
     // when found, update all info 
     //  Make sure it only matches 1 game 
 
@@ -58,8 +92,7 @@ async fn update_entry(id: &str, name: &str, description: &str, year: &str, ratin
 
     // make sure to sleep like 1 sec
     // write_games_json("./games.json").await.expect("Failed.");
-    return Ok(format!("Ok"));
-}
+
 
 async fn write_games_json(path_to_save:&str) -> std::io::Result<()> 
 {
