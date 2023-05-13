@@ -7,10 +7,10 @@
           <div class="blur-overlay"></div>
           <div class="form-content">
             <h2 class="form-title">Login</h2>
-            <input v-model="email" type="email" class="my-2 text-slate-600" placeholder=" Email" />
-            <input v-model="password" type="password" class=" text-slate-600" placeholder=" Password" />
+            <input v-model="email" type="email" class="my-2 text-2xl text-slate-600" placeholder=" Email" />
+            <input v-model="password" type="password" class="text-2xl text-slate-600" placeholder=" Password" />
             <button @click="login">
-              <div class="mx-10 my-4 bg-black rounded-xl">
+              <div class="mx-10 my-4 bg-black rounded-xl text-3xl">
                 <div>
                   Submit
                 </div> 
@@ -33,8 +33,8 @@
   height: 100vh;
   max-width: 100%;
   min-width: 100%;
-  background: linear-gradient(to right, #810010, #812f6a);
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #000000, #0b120c);
+  font-family: "OCR A" ;
   color: #fff;
 }
 
@@ -47,7 +47,7 @@
 
 .form-wrapper {
   position: relative;
-  width: 300px;
+  width: 40%;
   height: 300px;
 }
 
@@ -77,7 +77,7 @@
 
 .form-title {
   text-align: center;
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 

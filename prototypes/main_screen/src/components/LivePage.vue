@@ -14,6 +14,7 @@ const clipUrl = ref("https://clips.twitch.tv/BashfulHelpfulSalamanderPrimeMe");
     src="https://player.twitch.tv/?video=v1807129314&parent=streamernews.example.com&autoplay=false&parent=localhost"
     height="720"
     width="1280"
+    class="p-10"
     allowfullscreen>
   </iframe>
 

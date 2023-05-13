@@ -50,7 +50,7 @@
 <template>
 
 
-    <div class="flex flex-col h-screen bg-gray-900 text-Foreground rounded-br-xl rounded-tr-2xl  text-lg">   
+    <div class="flex flex-col h-screen bg-gray-900 text-Foreground rounded-br-xl rounded-tr-2xl  text-lg mr-10">   
       <div>
 
       <div class="mx-auto my-auto h-[128px] w-[128px] ">
@@ -66,7 +66,7 @@
           </div>
 
           <button @click="handle_home" type="submit">
-            <div class="flex flex-row items-center cursor-pointer">
+            <div class="flex mx-10 mt-20 flex-row items-center cursor-pointer">
               <HomeOutline fillColor="#f8f8f2" :size="20" />
               <div class="mx-1 my-3 items-center">
                 HOME
@@ -75,16 +75,16 @@
           </button>
 
           <button @click="handle_live" type="submit">
-            <div class="mx-auto my-auto flex flex-row items-center text-Red cursor-pointer">
+            <div class="mx-10 my-auto flex flex-row items-center text-Red cursor-pointer">
               <VideoBox fillColor="#ff5555" :size="20" />
               <div class="mx-1 my-3 items-center">
-                LIVE
+                VOD
               </div>
             </div> 
           </button> 
 
           <button @click="handle_play" type="submit">
-            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+            <div class="flex flex-row mx-10 my-auto items-center cursor-pointer">
               <AccountGroup fillColor="#f8f8f2" :size="20" />
               <div class="mx-1 my-3 items-center text-sm">
                 PLAY2GETHER
@@ -93,7 +93,7 @@
           </button>
 
           <button @click="handle_fund" type="submit">
-            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+            <div class="flex flex-row mx-10 my-auto items-center cursor-pointer">
               <AccountCash fillColor="#f8f8f2" :size="20" />
               <div class="mx-1 my-3 items-center">
                 FUNDS
@@ -102,7 +102,7 @@
           </button>
 
           <button @click="handle_tier" type="submit">
-            <div class="flex flex-row mx-auto my-auto items-center cursor-pointer">
+            <div class="flex flex-row mx-10 my-auto items-center cursor-pointer">
               <ListBox fillColor="#f8f8f2" :size="20"/>
               <div class="mx-1 my-3 items-center">
                 TIER LIST
@@ -111,7 +111,7 @@
           </button>
 
           <button @click="handle_gg" type="submit">
-            <div class=" flex flex-row mx-auto my-auto items-center cursor-pointer text-Yellow hover:shadow-Yellow hover:drop-shadow-lg">
+            <div class=" flex flex-row mx-10 my-auto items-center cursor-pointer text-Yellow hover:shadow-Yellow hover:drop-shadow-lg">
               <ExitToApp fillColor="#f1fa8c" :size="20" />
               <div class="mx-1 my-3 items-center">
                 <div class="hover:shadow-Green ">

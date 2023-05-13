@@ -1,12 +1,12 @@
 [
 
 {"_id":{"$oid":"64372e639a9c13d50c6fc477"},
-	"name":"CS: NO",
+	"name":"Ghost Recon Bad",
 	"description":"A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
 	"year":"2012",
-	"rating":"blankwe",
+	"rating":"A",
 	"video_url":"blank",
-	"img_url":"/src/assets/large_files/imgs/posters/csgo-poster-2.jpg"}, 
+	"img_url":"/src/assets/large_files/imgs/posters/ghostrecon.jpg"}, 
 
 {"_id":{"$oid":"64372e639a9c13d50c6fc47b"},
 	"name":"Roblox",
