@@ -1,7 +1,7 @@
 [
 
 {"_id":{"$oid":"64372e639a9c13d50c6fc477"},
-	"name":"Ghost Recon Bad",
+	"name":"Ghost Recon",
 	"description":"A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
 	"year":"2012",
 	"rating":"A",
