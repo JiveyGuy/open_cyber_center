@@ -19,70 +19,49 @@ struct GameStruct {
     img_url: String,
 }
 
-
-#[tokio::main]
-async fn main() -> std::io::Result<()> {
+async fn write_games_json(path_to_save:&str) -> std::io::Result<()> {
     // Load the MongoDB connection string from an environment variable:
-    let client_uri =
-        env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
+    let client_uri = env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
 
     // A Client is needed to connect to MongoDB:
     // An extra line of code to work around a DNS issue on Windows:
-    let options =
-        ClientOptions::parse_with_resolver_config(&client_uri, ResolverConfig::cloudflare()).await.expect("error");
+    let options = ClientOptions::parse_with_resolver_config(&client_uri, ResolverConfig::cloudflare()).await.expect("error");
     let client = mongodb::Client::with_options(options).unwrap();
-
-    // Print the databases in our MongoDB cluster:
-    println!("Databases:");
-    for name in client.list_database_names(None, None).await.expect("error") {
-        println!("- {}", name);
-    }
 
     // Get the 'movies' collection from the 'sample_mflix' database:
     let db = client.database("test");
-    
-    println!("Collections:");
-    for name in db.list_collection_names(None).await.expect("error") {
-        println!("- {}", name);
-    }
 
     let games = db.collection::<GameStruct>("GameList");
-
-
-    println!("Indexs:");
-    for name in games.list_index_names().await.expect("error") {
-        println!("- {}", name);
-    }
-
     let cursor = games.find(None, None).await.expect("error");
-
-    print!("debug info:");
-    // println!("{}", cursor.);
-
-    let vec_cursor = cursor.try_collect().await.unwrap_or_else(|_| vec![]);
-    println!("len: {}", vec_cursor.len());
-
-
-    // for entry in vec_cursor {
-    //     println!("{}", entry.name);
-    // }
+    let vec_cursor = cursor.try_collect().await.unwrap_or_else(|_| vec![]);  
     
+    // ======== Make output string text
     let mut buffer_string = String::new();
-    buffer_string.push('[');
-    
+    buffer_string.push_str("[\n");
     for (i, entry) in vec_cursor.iter().enumerate() {
-        buffer_string.push_str(&serde_json::to_string(&entry).unwrap());
+        buffer_string.push_str("\n");
+        buffer_string.push_str(&serde_json::to_string(&entry).unwrap().replace(",\"", ",\n\t\""));
+        
         if i < vec_cursor.len() - 1 {
             buffer_string.push_str(", ");
         }
-    }
     
-    buffer_string.push(']');
-    println!("{}", buffer_string);
+        buffer_string.push_str("\n");
+        
+    }
+    buffer_string.push_str("]\n");
+    // =================================
 
-    let mut file = File::create("output.json")?;
+    let mut file = File::create(path_to_save)?;
     file.write_all(buffer_string.as_bytes())?;
+    
     Ok(())
-
-
 }
+
+
+#[tokio::main]
+async fn main() {
+    // Load the MongoDB connection string from an environment variable:
+    write_games_json("./games.json").await.expect("Failed.");
+}
+

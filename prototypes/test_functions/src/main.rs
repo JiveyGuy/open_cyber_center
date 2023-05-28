@@ -14,19 +14,18 @@ struct GameStruct {
     rating: String,
     video_url: String,
     img_url: String,
+    exe_url: String,
 }
 
 
 #[tokio::main]
 async fn main() {
     // Load the MongoDB connection string from an environment variable:
-    let client_uri =
-        env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
+    let client_uri = env::var("MONGODB_URI").expect("You must set the MONGODB_URI environment var!");
 
     // A Client is needed to connect to MongoDB:
     // An extra line of code to work around a DNS issue on Windows:
-    let options =
-        ClientOptions::parse_with_resolver_config(&client_uri, ResolverConfig::cloudflare()).await.expect("error");
+    let options = ClientOptions::parse_with_resolver_config(&client_uri, ResolverConfig::cloudflare()).await.expect("error");
     let client = mongodb::Client::with_options(options).unwrap();
 
     // Print the databases in our MongoDB cluster:

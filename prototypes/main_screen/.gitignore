@@ -25,3 +25,4 @@ dist-ssr
 *.jpg
 *.mp4
 *.mp3
+local_env.json

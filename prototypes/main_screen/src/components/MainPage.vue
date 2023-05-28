@@ -73,12 +73,12 @@
 </script>
 
 <template>
-<div class="w-full h-full bg-purple-900" style="height: calc(100%); overflow: scroll;">
+<div class="w-full h-screen bg-purple-900 overflow-hidden">
   <div class="">
-    <div class="grid-container " >
-      <div class="grid grid-cols-12 gap-0 grid-rows-8 " >
+    <div class="grid-container  overflow-hidden" >
+      <div class="grid grid-cols-12 gap-0 grid-rows-8 overflow-hidden" >
           
-        <div class="col-start-1 row-span-6 row-start-1 col-span-2 m-4">
+        <div class="col-start-1 row-span-6 row-start-1 col-span-2 z-10">
           <TopBar @live="showLivePage"
                   @tier="showTierPage"
                   @play="showPlayPage"
@@ -119,17 +119,8 @@
           </div>
 
           <!-- div section for HOME page -->
-          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage" class="items-center row-start-2 row-span-1 col-start-3 col-end-13 m-4">
-            <div class="text-amber-500">
-              Recommended
-              <GameCarousel/>
-              New
-              <GameCarousel/>
-              Yours
-              <GameCarousel/>
-              Old
-              <GameCarousel/>
-            </div>
+          <div v-if="!isLivePage && !isTierPage && !isPlayPage && !isFundPage && isHomePage" class="row-start-2 col-start-3 col-end-13 m-4">
+              <GameCarousel class="px-5 py-96"/>
           </div>
          
 

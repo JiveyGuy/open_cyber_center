@@ -14,13 +14,13 @@
     img_url: string;
     exe_url: string;
   }
-  
+
 
   export default defineComponent({
     name: 'GameList',
     data() {
       return {
-        games: [] as Game[],
+        games: [] as Game[]
       };
     },
     mounted() {
@@ -28,38 +28,92 @@
     },
 
     setup() {
-      const carouselTrack = ref<HTMLElement | null>(null);
-      let startX: number | null = null;
-      let currentTranslate = 0;
+      const imageTrack = ref<HTMLElement | null>(null);
+      const imageElem = ref<HTMLElement | null>(null);
+      console.log("images");
+
+      let mouseDownAt = ref("0");
+      let prevPercentage= ref("0%");
+      let g_percentage = ref("0%");
 
       async function handle_click(name: string)
       {
-        await invoke("update_entry", { name: name});
+        await invoke("run_game", { name: name});
       };
-    
-      function handleMouseDown(event: MouseEvent) {
-        startX = event.clientX;
-        carouselTrack.value?.classList.add('grabbing');
+
+      function handleOnDown (e: MouseEvent)
+      {
+        mouseDownAt.value = e.clientX.toString();
       }
-    
-      function handleMouseMove(event: MouseEvent) {
-        if (startX === null) return;
-        const distance = event.clientX - startX;
-        currentTranslate = distance;
-        carouselTrack.value!.style.transform = `translateX(${distance}px)`;
+
+      function handleOnDown2 (payload: TouchEvent)
+      {
+        mouseDownAt.value = payload.touches[0].clientX.toString();
       }
-    
-      function handleMouseUp() {
-        startX = null;
-        carouselTrack.value?.classList.remove('grabbing');
-        carouselTrack.value!.style.transform = '';
+
+      function handleOnUp()
+      {
+        mouseDownAt.value = "0";  
+        prevPercentage.value = g_percentage.value;
+      }
+
+      function handleOnMove(e: MouseEvent)
+      {
+        if(mouseDownAt.value === "0") return;
+        
+        const mouseDelta = parseFloat(mouseDownAt.value) - e.clientX,
+              maxDelta = window.innerWidth / 2;
+        
+        const percentage = (mouseDelta / maxDelta) * -10,
+              nextPercentageUnconstrained = parseFloat(prevPercentage.value) + percentage,
+              nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+        
+        g_percentage.value = nextPercentage.toString();
+        
+        imageTrack.value!.animate({
+          transform: `translate(${nextPercentage}%, -50%)`
+        }, { duration: 1200, fill: "forwards" });
+        
+        for(const image of imageTrack.value!.getElementsByClassName("image")) {
+          image!.animate({
+            objectPosition: `${100 + nextPercentage}% center`
+          }, { duration: 1200, fill: "forwards" });
+        }
+      }
+
+      function handleOnMove2(payload: TouchEvent)
+      {
+        let e = payload.touches[0];
+        if(mouseDownAt.value === "0") return;
+        
+        const mouseDelta = parseFloat(mouseDownAt.value) - e.clientX,
+              maxDelta = window.innerWidth / 2;
+        
+        const percentage = (mouseDelta / maxDelta) * -10,
+              nextPercentageUnconstrained = parseFloat(prevPercentage.value) + percentage,
+              nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+        
+        g_percentage.value = nextPercentage.toString();
+        
+        imageTrack.value!.animate({
+          transform: `translate(${nextPercentage}%, -50%)`
+        }, { duration: 1200, fill: "forwards" });
+        
+        for(const image of imageTrack.value!.getElementsByClassName("image")) {
+          image!.animate({
+            objectPosition: `${100 + nextPercentage}% center`
+          }, { duration: 1200, fill: "forwards" });
+        }
       }
     
       return {
-        carouselTrack,
-        handleMouseDown,
-        handleMouseMove,
-        handleMouseUp,
+        imageTrack,
+        imageElem,
+        handleOnDown,
+        handleOnDown2,
+        handleOnMove,
+        handleOnMove2,
+        handleOnUp,
         handle_click
       };
     },
@@ -68,28 +122,60 @@
 
 
 <template>
-  <div class="flex p-5 bg-gray-900 rounded-lg shadow-lg overflow-hidden">
-    <div class = "items-center my-0 mx-4" style="position: relative; height: 200px;  ;">
-      <div
-        class="carousel-track absolute top-0 left-0 w-full h-full flex"
-        ref="carouselTrack"
-        @mousedown="handleMouseDown"
-        @mousemove="handleMouseMove"
-        @mouseup="handleMouseUp"
-      >
+  <div @mouseleave="handleOnUp">
+    <div id="image_track" data-mouse-down-at="0" data-prev-percentage="0" ref="imageTrack" class="my_style"
+          @mousedown="handleOnDown"
+          @touchstart="handleOnDown2"
+          @touchend="handleOnUp"
+          @mousemove="handleOnMove"
+          @mouseup="handleOnUp"
+          @touchmove="handleOnMove2"
+          >
       <div v-for="game in games" :key="game.id">
-        <button @click="handle_click(game.exe_url)" type="submit">
-          <div class="carousel-item flex-none w-40 h-40 px-2 shadow-sm">
-            <img :src="game.img_url" :alt="game.name" class="rounded-3xl " />
-          </div>
-          <div class = "animate-pulse m-10 bg-gradient-to-r from-green-700 to-purple-600 rounded-sm opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt">
-            {{ game.name }}
+        <button @dblclick="handle_click(game.exe_url)" type="submit" class="relative">
+          <img class="image" :src="game.img_url" draggable="false"/>
+          <div class="absolute bottom-0 left-0 w-full z-10">
+            <div class="bg-gradient-to-t from-black to-transparent p-10">
+              <div class="font-bold text-white text-left">{{ game.name }}</div>
+              <div class="text-center">
+                <div class="font-ocr-a text-gray-500 text-base">{{ game.rating }}</div>
+              </div>
+            </div>
           </div>
         </button>
-          
-       </div>
-       </div>
-
+      </div>
     </div>
   </div>
 </template>
+
+
+
+
+
+
+<style scoped>
+.my_style {
+  margin: 0rem;
+  width: max-content;
+}
+
+#image_track {
+  display: flex;
+  gap: 4vmin;
+  transform: translate(0%, -50%);
+  user-select: none;
+}
+
+#image_track > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#image_track > div > button > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+}
+</style>

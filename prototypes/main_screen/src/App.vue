@@ -22,7 +22,7 @@
   }
 
   let isLoggedIn = ref(false);
-  let isStarted = ref(false);
+  let isStarted  = ref(false);
 </script>
 
 <template>
@@ -34,7 +34,7 @@
       <transition name="fade">
   
         <div v-if="!isLoggedIn">         
-          <Login @login="isLoggedIn = true" />
+          <Login @login-success="isLoggedIn = true" />
         </div> 
 
         <div v-else>

@@ -1,102 +1,67 @@
 [
-    { 
-            "id": 0,
-            "name": "Apex Legends",
-            "description": "A battle royale shooter game where competitors battle for glory, fame, and fortune.",
-            "year": "2019",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/apex-legends-poster2.jpg",
-            "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-        { 
-            "id": 1,
-            "name": "CS: GO",
-            "description": "A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
-            "year": "2012",
-            "rating": "blank",
-            "video_url": "blank",
-            "img_url": "/src/assets/large_files/imgs/posters/csgo-poster-2.jpg",
-            "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Deep Rock Galactic\\FSD.exe"
-        },
-		{ 
-            "id": 2,
-            "name": "Fallout 4",
-            "description": "A post-apocalyptic role-playing game that's the 5th major installment of the Fallout series with the story taking place 10 years after Fallout 3.",
-            "year": "2015",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/fallout4-poster2.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 3, 
-            "name": "Hogwarts Legacy",
-            "description": "An immersive, open-world action role-playing game set in the magical world of Harry Potter.",
-            "year": "2023",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/hogwarts-legacy-poster.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 4, 
-            "name": "Overwatch 2",
-            "description": "A team-based action game set in the future where players battle in 5 vs. 5 teams.",
-            "year": "2022",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/overwatch2-poster-2.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 5,
-            "name": "Roblox",
-            "description": "An interactive gaming universe that lets players create, share experiences with friends and do anything they can imagine.",
-            "year": "2006",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/roblox-poster.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 6, 
-            "name": "Rocket League",
-            "description": "A hybrid game that combines arcade-style soccer and vehicular derby.",
-            "year": "2015",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/rocket-league-poster2.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 7, 
-            "name": "Smite",
-            "description": "A third-person multiplayer online battle arena game.",
-            "year": "2014",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/smite-poster2.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 8, 
-            "name": "Valorant",
-            "description": "A 5 vs. 5 character-based tactical first person shooter game.",
-            "year": "2020",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/valorant-poster.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-        },
-		{
-            "id": 9, 
-            "name": "World of Warcraft",
-            "description": "A MMORPG set in the magical world of Azeroth.",
-            "year": "2004",
-            "rating": "blank",
-            "video_url": "blank",
-             "img_url": "/src/assets/large_files/imgs/posters/wrld-o-wrcrft-poster2.jpg",
-             "exe_url": "G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"
-    }
-]
+
+    {"_id":{"$oid":"64372e639a9c13d50c6fc477"},
+        "name":"Ghost Recon",
+        "description":"A multiplayer tactical first person shooter game with a large set of maps, characters, weapons, and game play modes.",
+        "year":"2012",
+        "rating":"A",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/ghostrecon.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\Ghost Recon\\GhostRecon.exe"},
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc47b"},
+        "name":"Gundam Evolution",
+        "description":"An interactive gaming universe that lets players create, share experiences with friends and do anything they can imagine.",
+        "year":"2006",
+        "rating":"C",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/gundam.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\GUNDAM EVOLUTION\\EvoLauncher.exe"
+    }, 
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc476"},
+        "name":"Deep Rock",
+        "description":"A battle royale shooter game where competitors battle for glory, fame, and fortune.",
+        "year":"2019",
+        "rating":"A",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/deeprock.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\Deep Rock Galactic\\FSD.exe"}, 
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc478"},
+        "name":"Counter Strike",
+        "description":"A post-apocalyptic role-playing game that's the 5th major installment of the Fallout series with the story taking place 10 years after Fallout 3.",
+        "year":"2015",
+        "rating":"F",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/css.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\Counter-Strike Source\\hl2.exe"}, 
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc47a"},
+        "name":"Squad",
+        "description":"A team-based action game set in the future where players battle in 5 vs. 5 teams.",
+        "year":"2022",
+        "rating":"S+",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/squad.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\Squad\\squad_launcher.exe"}, 
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc47d"},
+        "name":"gmod",
+        "description":"A third-person multiplayer online battle arena game.",
+        "year":"2014",
+        "rating":"B",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/gmod.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\GarrysMod\\hl2.exe"}, 
+    
+    {"_id":{"$oid":"64372e639a9c13d50c6fc479"},
+        "name":"among_us",
+        "description":"An immersive, open-world action role-playing game set in the magical world of Harry Potter.",
+        "year":"2023",
+        "rating":"A",
+        "video_url":"blank",
+        "img_url":"/src/assets/large_files/imgs/posters/among_us.jpg",
+        "exe_url":"G:\\SteamLibrary\\steamapps\\common\\Among Us\\Among Us.exe"}
+    ]
+    
